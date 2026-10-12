@@ -41,7 +41,8 @@ Objectives (all one-spin, minimisation form):
 2. `worst_loss`: maximise the minimum pocket profit.
 3. `tail`: minimise expected shortfall of loss at alpha = 1/20 (Rockafellar–
    Uryasev linearisation; the returned value is recomputed exactly by
-   `roulette.coverage_risk.exact_risk`).
+   `roulette.coverage_risk.exact_risk`). `alpha` must lie in [1e-6, 1];
+   the solver minimises `alpha*eta + sum(u)/37`.
 
 Under `frequency` the target is only a floor, so lists for different targets
 may coincide; that is expected and reported as is.
@@ -57,7 +58,8 @@ twins are tolerated, then the cell stops with `twin_limit`. Restaking the same
 bet set is therefore never a new alternative.
 
 Reference (row A): the best exact-checked recorded portfolio for the same
-budget, position limit and target from `results/coverage-benchmark-060.json`
+budget, position limit, target, objective (ranked by the same exact objective)
+and stake mode (equal-stake cells accept only equal-chip references) from `results/coverage-benchmark-060.json`
 and `results/coverage-optimisation-20chips.json`, when present.
 
 ## Initial grid (C4-001)
@@ -65,6 +67,10 @@ and `results/coverage-optimisation-20chips.json`, when present.
 20 chips, 10 positions, targets 70/80/90, three objectives, `any` stakes,
 count 10, `min_distance` 4, 30 s per MILP. Wider budget/position grids are
 exploratory follow-ups and recorded separately.
+
+Reference exclusion matches bets by physical identity (numbers, payout), not
+name. An independent adversarial review run before the grid found and led to
+fixes of reference selection, reference exclusion and small-alpha handling.
 
 ## Acceptance
 

@@ -169,3 +169,94 @@ def test_cell_row_and_markdown_have_all_37_pockets(cli):
         assert row["return_per_chip"] == "-1/37"
     text = cli.markdown({"cells": [cell]})
     assert "| Combination |" in text and "36:" in text
+
+
+@pytest.mark.parametrize("stake_mode", ["any", "equal"])
+@pytest.mark.parametrize("alpha", [Fraction(1, 19), Fraction(2, 37), Fraction(1, 2)])
+def test_tail_matches_brute_force_for_other_alpha(alpha, stake_mode):
+    catalogue = small_catalogue()[:8]
+    result = explore_portfolios(6, 20, 3, "tail", catalogue, count=1, time_limit=60,
+                                alpha=alpha, stake_mode=stake_mode)
+    best = None
+    for k in (1, 2, 3):
+        for bets in combinations(catalogue, k):
+            for stakes in compositions(6, k):
+                if stake_mode == "equal" and len(set(stakes)) != 1:
+                    continue
+                a = analyse(bets, stakes)
+                if a.profitable_count >= 20:
+                    value = exact_risk(a, alpha).expected_shortfall
+                    best = value if best is None or value < best else best
+    assert result.portfolios[0].objective_value == best
+
+
+def test_unrepresentable_alpha_rejected():
+    with pytest.raises(ValueError):
+        explore_portfolios(6, 20, 3, "tail", small_catalogue(), alpha=Fraction(1, 10**400))
+
+
+def _write_reference(tmp_path, rows):
+    import json
+    path = tmp_path / "ref.json"
+    path.write_text(json.dumps({"results": rows}))
+    return path
+
+
+def _row(bets, stakes):
+    return {"bets": [{"name": b.name, "numbers": list(b.numbers), "payout": b.payout}
+                     for b in bets], "stakes": stakes}
+
+
+def test_reference_follows_objective_and_stake_mode(cli, tmp_path):
+    groups = european_catalogue()
+    catalogue = catalogue_for(DEFAULT_FAMILIES)
+    lows = (groups["even_money"][4], groups["even_money"][5])
+    dozens = groups["dozen"]
+    mixed = _row(lows + (dozens[0],), [7, 7, 4])
+    equal = _row(dozens, [6, 6, 6])
+    path = _write_reference(tmp_path, [mixed, equal])
+    a_mixed = analyse(lows + (dozens[0],), [7, 7, 4])
+    a_equal = analyse(dozens, [6, 6, 6])
+    chosen = cli.load_references([path], catalogue, 18, 10, 0, "worst_loss", "equal")
+    assert chosen is not None and len(set(chosen.stakes)) == 1
+    for objective in ("frequency", "worst_loss", "tail"):
+        got = cli.load_references([path], catalogue, 18, 10, 0, objective, "any")
+        values = {
+            name: objective_value(a, exact_risk(a), objective)
+            for name, a in (("m", a_mixed), ("e", a_equal))
+        }
+        if values["m"] == values["e"]:
+            continue
+        winner = "m" if values["m"] < values["e"] else "e"
+        assert (len(set(got.stakes)) == 1) == (winner == "e")
+
+
+def test_reference_exclusion_uses_physical_identity(cli):
+    catalogue = small_catalogue()
+    renamed = [type(b)("alias_" + b.name, b.numbers, b.payout) for b in catalogue[:3]]
+    task = (6, 3, 60, "worst_loss", "any", ["dozen", "column", "even_money"], 1, 1, 30,
+            {"keys": [(sorted(b.numbers), b.payout) for b in renamed]})
+    _, result = cli.run_cell(task)
+    assert all({b.name for b in p.bets} != {b.name for b in catalogue[:3]}
+               for p in result.portfolios)
+    task = task[:-1] + ({"keys": [([5, 6, 7], 11)]},)
+    with pytest.raises(ValueError):
+        cli.run_cell(task)
+
+
+def test_frequency_descends_levels_instead_of_stopping_on_twins():
+    catalogue = small_catalogue()
+    result = explore_portfolios(6, 10, 3, "frequency", catalogue, count=6, min_distance=1,
+                                time_limit=60)
+    assert len(result.portfolios) >= 2
+    for p in result.portfolios:
+        assert p.analysis.profitable_count == sum(1 for v in p.analysis.profits if v > 0)
+    profiles = {tuple(sorted(p.analysis.profits)) for p in result.portfolios}
+    assert len(profiles) == len(result.portfolios)
+
+
+def test_frequency_best_matches_brute_force_after_exact_indicator():
+    catalogue = small_catalogue()
+    result = explore_portfolios(6, 22, 3, "frequency", catalogue, count=3, time_limit=60)
+    oracle = brute_force_values(catalogue, 6, 3, 22, "frequency")
+    assert result.portfolios[0].objective_value == oracle[0]

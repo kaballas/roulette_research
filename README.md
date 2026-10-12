@@ -148,16 +148,18 @@ search cell (chip budget × position limit × target × objective × stake mode)
 each with exact positions, chips and net profit on all 37 pockets. Objectives:
 highest winning frequency, lowest worst loss, smallest 5% expected-shortfall tail.
 Distinct means occupied bet sets differ by at least `--min-distance` positions
-and the sorted 37-pocket P&L differs (mirror twins are dropped). Every output has
+and the sorted 37-pocket P&L differs (mirror twins are dropped; this applies among
+explorer rows, the recorded reference row A may be a P&L twin). Every output has
 expectation exactly -stake/37. Lists are time-limited best-found alternatives,
-not exhaustive enumerations; see the
-[registration](docs/COMBINATION_EXPLORER_REGISTER.md).
+not exhaustive enumerations, and short solver limits under-resolve hard cells; see
+the [registration](docs/COMBINATION_EXPLORER_REGISTER.md) and
+[amendment](docs/COMBINATION_EXPLORER_AMENDMENT_1.md).
 
 ```sh
 PYTHONPATH=src python experiments/explore_combinations.py \
-  --chip-budgets 20 --max-bets 10 --targets 70 80 90 --count 10 --seconds 30 --jobs 8 \
-  --output results/combination-explorer-20chips-10bets.json \
-  --markdown results/combination-explorer-20chips-10bets.md
+  --chip-budgets 20 --max-bets 10 --targets 70 80 90 --count 10 --seconds 90 --jobs 8 \
+  --output results/combination-explorer-20chips-10bets-090s.json \
+  --markdown results/combination-explorer-20chips-10bets-090s.md
 ```
 
 Local verification: **274 tests passed, four CP-SAT runtime checks skipped**.

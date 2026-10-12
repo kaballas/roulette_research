@@ -51,7 +51,11 @@ class Exploration:
 
     ``stop_reason``: ``count_reached``; ``exhausted`` (solver reports no further
     portfolio at the distance, numerically); ``analytical_infeasible`` (exact
-    lattice argument); ``time_limit`` (a solve ended without an incumbent).
+    lattice argument); ``time_limit`` (a solve ended without an incumbent, not
+    proof that none exists); ``twin_limit`` (more candidates than tolerated
+    repeated an accepted P&L distribution; neither exhaustion nor a time limit).
+    For ``frequency`` the search instead descends: after that many twins the
+    profitable-pocket count is capped below the saturated level and continues.
     """
 
     budget: int
@@ -101,7 +105,7 @@ def _equal_sizes(budget: int, max_bets: int) -> list[int]:
 
 
 def _solve_once(candidates, gross, budget, target, max_bets, objective, stake_mode,
-                alpha, cuts, min_distance, time_limit, upper_floor):
+                alpha, cuts, min_distance, time_limit, upper_floor, count_cap=None):
     n = len(candidates)
     z0, t_i, eta_i, u0 = 2 * n, 2 * n + 37, 2 * n + 38, 2 * n + 39
     sizes = _equal_sizes(budget, max_bets) if stake_mode == "equal" else []
@@ -137,6 +141,17 @@ def _solve_once(candidates, gross, budget, target, max_bets, objective, stake_mo
     row = np.zeros(size)
     row[z0:z0 + 37] = 1
     add(row, lo=target)
+    if objective == "frequency":
+        # z_p = 0 forces profit <= 0, so sum(z) is exactly the profitable count
+        for p in range(37):
+            row = np.zeros(size)
+            row[:n] = gross[p]
+            row[z0 + p] = -(int(gross[p].max()) - 1) * budget
+            add(row, hi=budget)
+        if count_cap is not None:
+            row = np.zeros(size)
+            row[z0:z0 + 37] = 1
+            add(row, hi=count_cap)
     if objective in ("worst_loss", "frequency"):
         for p in range(37):
             row = np.zeros(size)
@@ -177,8 +192,8 @@ def _solve_once(candidates, gross, budget, target, max_bets, objective, stake_mo
         cost[z0:z0 + 37] = -(2 * budget + 1)
         cost[t_i] = -1
     else:
-        cost[eta_i] = 1
-        cost[u0:u0 + 37] = 1 / (37 * alpha)
+        cost[eta_i] = alpha  # alpha * ES, avoiding a huge reciprocal for small alpha
+        cost[u0:u0 + 37] = 1 / 37
     lower, upper = np.zeros(size), np.zeros(size)
     upper[:n] = budget
     upper[n:z0 + 37] = 1
@@ -234,8 +249,8 @@ def explore_portfolios(
             or not isfinite(time_limit) or not 0 < time_limit <= 3600:
         raise ValueError("time_limit must be finite, positive and at most 3600 seconds")
     alpha = Fraction(alpha)
-    if not 0 < alpha <= 1:
-        raise ValueError("alpha must be in (0, 1]")
+    if not Fraction(1, 10**6) <= alpha <= 1:
+        raise ValueError("alpha must be in [1e-6, 1]")
     legal = {_key(b) for group in european_catalogue().values() for b in group}
     candidates = tuple(catalogue) if catalogue is not None else catalogue_for(DEFAULT_FAMILIES)
     keys = [_key(b) for b in candidates]
@@ -268,11 +283,11 @@ def explore_portfolios(
         return finish([], "analytical_infeasible")
     found: list[Portfolio] = []
     seen_profiles: set[tuple] = set()
-    rejected, max_twins = 0, 3 * count
+    rejected, max_twins, count_cap = 0, count, None
     while len(found) < count:
         result, n = _solve_once(candidates, gross, budget, target_profitable, max_bets,
                                 objective, stake_mode, float(alpha), cuts, min_distance,
-                                time_limit, lattice.upper_bound)
+                                time_limit, lattice.upper_bound, count_cap)
         if result.status == 2:
             return finish(found, "exhausted")
         if result.x is None:
@@ -304,7 +319,13 @@ def explore_portfolios(
         if profile in seen_profiles:
             rejected += 1  # mirror or shifted twin: same risk profile, new positions
             if rejected > max_twins:
-                return finish(found, "twin_limit")
+                if objective != "frequency":
+                    return finish(found, "twin_limit")
+                # level descent: this profitable-pocket level is saturated by twins
+                count_cap = analysis.profitable_count - 1
+                rejected = 0
+                if count_cap < target_profitable:
+                    return finish(found, "exhausted")
             continue
         seen_profiles.add(profile)
         risk = exact_risk(analysis, alpha)

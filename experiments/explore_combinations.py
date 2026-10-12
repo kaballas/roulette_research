@@ -25,7 +25,7 @@ from optimise_coverage import _chip_budget, _json_exact, _percentage, _position_
 from roulette.coverage import analyse, european_catalogue
 from roulette.coverage_explorer import (
     DEFAULT_FAMILIES, OBJECTIVES, Exploration, catalogue_for, describe_bet,
-    explore_portfolios,
+    explore_portfolios, objective_value,
 )
 from roulette.coverage_risk import exact_risk
 from roulette.rules import Bet
@@ -52,8 +52,13 @@ def _seconds(value: str) -> float:
     return number
 
 
-def load_references(paths, catalogue, budget, max_bets, required):
-    """Best exact-checked recorded portfolio for this cell, or ``None``."""
+def load_references(paths, catalogue, budget, max_bets, required,
+                    objective="worst_loss", stake_mode="any"):
+    """Best exact-checked recorded portfolio for this cell's objective, or ``None``.
+
+    Equal-stake cells accept only equal-chip references. Ranking uses the same
+    exact objective as the explorer, so row A is comparable with its siblings.
+    """
     best = None
     for path in paths:
         if not path.exists():
@@ -65,14 +70,14 @@ def load_references(paths, catalogue, budget, max_bets, required):
                 bets = [Bet(b["name"], tuple(b["numbers"]), b["payout"]) for b in part["bets"]]
                 seed = checked_seed(bets, part.get("stakes", []), str(path.name),
                                     catalogue, budget, max_bets)
-                if seed is None:
+                if seed is None or (stake_mode == "equal" and len(set(seed.stakes)) != 1):
                     continue
                 analysis = analyse(seed.bets, seed.stakes)
                 if analysis.profitable_count < required:
                     continue
-                score = (analysis.profitable_count >= required, analysis.worst_profit)
-                if best is None or score > best[0]:
-                    best = (score, seed)
+                value = objective_value(analysis, exact_risk(analysis), objective)
+                if best is None or value < best[0]:
+                    best = (value, seed)
     return best[1] if best else None
 
 
@@ -83,8 +88,11 @@ def run_cell(task):
     catalogue = catalogue_for(families)
     exclude = ()
     if reference is not None:
-        by_name = {b.name: b for b in catalogue}
-        exclude = ([by_name[n] for n in reference["names"] if n in by_name],)
+        by_key = {(frozenset(b.numbers), b.payout): b for b in catalogue}
+        wanted = [(frozenset(numbers), payout) for numbers, payout in reference["keys"]]
+        if any(key not in by_key for key in wanted):
+            raise ValueError("reference bet is outside the selected catalogue")
+        exclude = ([by_key[key] for key in wanted],)
     required = (37 * target + 99) // 100
     result = explore_portfolios(budget, required, max_bets, objective, catalogue, count=count,
                                 min_distance=min_distance, stake_mode=stake_mode,
@@ -210,11 +218,12 @@ def main() -> None:
     tasks, references = [], {}
     for budget, max_bets, target, objective, stake_mode in grid:
         required = (37 * target + 99) // 100
-        ref = load_references(args.references, catalogue, budget, max_bets, required)
+        ref = load_references(args.references, catalogue, budget, max_bets, required,
+                              objective, stake_mode)
         references[(budget, max_bets, target, objective, stake_mode)] = ref
         tasks.append((budget, max_bets, target, objective, stake_mode, families, args.count,
                       args.min_distance, args.seconds,
-                      {"names": [b.name for b in ref.bets]} if ref else None))
+                      {"keys": [(sorted(b.numbers), b.payout) for b in ref.bets]} if ref else None))
     cells = []
     with ProcessPoolExecutor(max_workers=args.jobs) as pool:
         for task, result in pool.map(run_cell, tasks):

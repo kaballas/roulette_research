@@ -1,0 +1,1695 @@
+{
+  "scope": "Nondominated supplied candidates only; global Pareto optimality not established.",
+  "axes": [
+    "maximise profitable_count",
+    "maximise worst_profit",
+    "minimise expected_shortfall"
+  ],
+  "alpha": "1/20",
+  "inputs_sha256": {
+    "results/coverage-optimisation-20chips.json": "daea96a8515f167b00105f9b40e3d115756deabb2b4638e078b56e924e0e7c43",
+    "results/coverage-benchmark-060.json": "dd4e7772936b9074b71d9635f3f6b69c6e8bb68155965b5b966e94e0cfcd398a"
+  },
+  "metadata": {
+    "python": "3.14.7",
+    "numpy": "2.4.6",
+    "scipy": "1.17.1",
+    "sympy": "1.14.0",
+    "code_sha256": {
+      "src/roulette/__init__.py": "d5429a85fd8df84a8216915c9eaa2a310a3d119d23054bbef8410e732ae0b344",
+      "src/roulette/coverage.py": "248d44a449b653e33e59fe820d3e5ff397ed9a1d32eedc01c825bd629382b401",
+      "src/roulette/coverage_cpsat.py": "cdc1d28cfd36bf36d755d0435a79067380e7592d2bda62e24881e3e31ba1559a",
+      "src/roulette/coverage_optimisation.py": "d7dd9f13a9764b2d30c63509450e723bc3e9898e0af568ccfa658d2c9359b5ca",
+      "src/roulette/coverage_risk.py": "b27d3248dce51c40bc6fc0b3f6a1fccb615318e8583460bd486c04fb074b2f9c",
+      "src/roulette/coverage_search.py": "e12253b6c559fc3cfa1ef3d5aba5255ba4e78724271e185f93ae032ba6cd6736",
+      "src/roulette/evaluation.py": "6be34994d5e25db4d82cdfa38b18602e2b31d3af2f9f07d5eee1eed11d7d6226",
+      "src/roulette/rules.py": "447f07f03b89b0a25d4c2d850eb032b5522231e41891d34e9a6bfb88126ed766",
+      "src/roulette/simulation.py": "b0f56c426bf159a8fb3ac052dea3a6816ef47d1e3007065c2f665c19e054d294",
+      "src/roulette/statistics.py": "6782a989b55671ac2631b0ab7af5a69400566cc06cf8567c9a1bc599564952c9",
+      "src/roulette/strategies.py": "97ffaff8a99770e0665b63c230c3261814cbab23ce0055da8042a1ae79564230",
+      "src/roulette/theory.py": "a8a80ea97ed20755e9fa15892c1324ef6dfc47bb61b0adcc595b672f486911fe",
+      "experiments/baseline.py": "8fbaf01436d54d5e0b6de121bc3918a5a2fba70c969fcbd141e2a7036f6c1c9c",
+      "experiments/benchmark_coverage.py": "9bc3e38dbd22514ca8fff2d718cda83e11ca96fb90b8563c8b473678f7b68325",
+      "experiments/coverage.py": "d0cff6a60c1b15e552d67a0d1eaf192cdd98666cb9c80cd3359d80772e82d016",
+      "experiments/coverage_frontier.py": "49d578540bda84594fbc557c869efd00eb37d28d3854fc7d3f78e8912f3ed252",
+      "experiments/optimise_coverage.py": "0bcd5468c0b10614f7fdad27840fc60bc7fc892cb87d1787c8a8cebafc6782aa",
+      "experiments/strategies.py": "357cd6e9a8730cc11deb4b5e8dc15322f1c31495a11bb2a48384ba92a0d39445",
+      "experiments/verify.py": "98c3c8821a47f14c502f85d51fd3a71895d4bdb1053a6b3e65da13d9bcb9b885",
+      "tests/test_benchmark_coverage.py": "153de3964d0a341902438ba35f6a5e8d7af8edd578035877c7f582bc3354ea05",
+      "tests/test_coverage.py": "ff5daa7b7767a9c5430b9197ef1f55bd93f768259a2b14e28043b433f776d630",
+      "tests/test_coverage_frontier_cli.py": "87c01ce6b41fb2f609f88aca3666dfa55937ddb84fb990a867d9fa13a8140f04",
+      "tests/test_coverage_optimisation.py": "6b33dc2a9afb83ab1a8adb36833f2bfa7051cec6532f37507e4b6cd45759d6e8",
+      "tests/test_coverage_risk.py": "d3bb1ed43b8499ec7afd69b540293958d7d2698c3441aa8fc5024fee5c4583c9",
+      "tests/test_coverage_search.py": "3a94f2bc6b6cc1aa93f74e182c8e32b33bd0f79ac709ecce18e3047d83c1fd4c",
+      "tests/test_optimise_coverage_cli.py": "3d4f2cba63674016ef98cab6c98bc80c78812761169f1358e23c6fb98eac2d52",
+      "tests/test_rules.py": "3b682476a69831e08e79285d9bff8ee54f5994e2bf5b9f207812354d9ecbb7b1",
+      "tests/test_simulation.py": "360c1319f3fa23965cfd2dc9db7dff0a9fd3d5ddb530d976f789e0d9cd4f3814",
+      "tests/test_statistics.py": "8d569430095bf8785d8ec539ba6e00ed133107db0d0c4b01f7f08d2c4f5fa614",
+      "tests/test_verify.py": "871c9294b44a439cafbbe84e85ec194ed2a991e6a4f527b6ef663d4bcc6796c7"
+    },
+    "rng": null
+  },
+  "frontier": [
+    "results/coverage-benchmark-060.json/results/0/optimisation",
+    "results/coverage-benchmark-060.json/results/4/optimisation",
+    "results/coverage-benchmark-060.json/results/6/optimisation",
+    "results/coverage-benchmark-060.json/results/8/feasibility",
+    "results/coverage-benchmark-060.json/results/8/optimisation"
+  ],
+  "candidates": {
+    "results/coverage-optimisation-20chips.json/results/0": {
+      "allocation": {
+        "bets": [
+          {
+            "name": "street_0_1_2",
+            "numbers": [
+              0,
+              1,
+              2
+            ],
+            "payout": 11
+          },
+          {
+            "name": "dozen_1_2_3_4_5_6_7_8_9_10_11_12",
+            "numbers": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12
+            ],
+            "payout": 2
+          },
+          {
+            "name": "low",
+            "numbers": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18
+            ],
+            "payout": 1
+          },
+          {
+            "name": "high",
+            "numbers": [
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31,
+              32,
+              33,
+              34,
+              35,
+              36
+            ],
+            "payout": 1
+          }
+        ],
+        "stakes": [
+          1,
+          7,
+          1,
+          11
+        ]
+      },
+      "metrics": {
+        "total_stake": "20",
+        "alpha": "1/20",
+        "profitable_count": 30,
+        "worst_profit": "-18",
+        "conditional_positive_mean": "16/5",
+        "conditional_loss_mean": "116/7",
+        "expected_shortfall": "18"
+      }
+    },
+    "results/coverage-optimisation-20chips.json/results/1": {
+      "allocation": {
+        "bets": [
+          {
+            "name": "straight_0",
+            "numbers": [
+              0
+            ],
+            "payout": 35
+          },
+          {
+            "name": "corner_20_21_23_24",
+            "numbers": [
+              20,
+              21,
+              23,
+              24
+            ],
+            "payout": 8
+          },
+          {
+            "name": "six_line_28_29_30_31_32_33",
+            "numbers": [
+              28,
+              29,
+              30,
+              31,
+              32,
+              33
+            ],
+            "payout": 5
+          },
+          {
+            "name": "dozen_13_14_15_16_17_18_19_20_21_22_23_24",
+            "numbers": [
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24
+            ],
+            "payout": 2
+          },
+          {
+            "name": "dozen_25_26_27_28_29_30_31_32_33_34_35_36",
+            "numbers": [
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31,
+              32,
+              33,
+              34,
+              35,
+              36
+            ],
+            "payout": 2
+          },
+          {
+            "name": "low",
+            "numbers": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18
+            ],
+            "payout": 1
+          },
+          {
+            "name": "high",
+            "numbers": [
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31,
+              32,
+              33,
+              34,
+              35,
+              36
+            ],
+            "payout": 1
+          }
+        ],
+        "stakes": [
+          1,
+          2,
+          3,
+          1,
+          1,
+          11,
+          1
+        ]
+      },
+      "metrics": {
+        "total_stake": "20",
+        "alpha": "1/20",
+        "profitable_count": 29,
+        "worst_profit": "-15",
+        "conditional_positive_mean": "100/29",
+        "conditional_loss_mean": "15",
+        "expected_shortfall": "15"
+      }
+    },
+    "results/coverage-benchmark-060.json/results/0/feasibility": {
+      "allocation": {
+        "bets": [
+          {
+            "name": "straight_0",
+            "numbers": [
+              0
+            ],
+            "payout": 35
+          },
+          {
+            "name": "corner_20_21_23_24",
+            "numbers": [
+              20,
+              21,
+              23,
+              24
+            ],
+            "payout": 8
+          },
+          {
+            "name": "six_line_28_29_30_31_32_33",
+            "numbers": [
+              28,
+              29,
+              30,
+              31,
+              32,
+              33
+            ],
+            "payout": 5
+          },
+          {
+            "name": "dozen_13_14_15_16_17_18_19_20_21_22_23_24",
+            "numbers": [
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24
+            ],
+            "payout": 2
+          },
+          {
+            "name": "dozen_25_26_27_28_29_30_31_32_33_34_35_36",
+            "numbers": [
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31,
+              32,
+              33,
+              34,
+              35,
+              36
+            ],
+            "payout": 2
+          },
+          {
+            "name": "low",
+            "numbers": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18
+            ],
+            "payout": 1
+          },
+          {
+            "name": "high",
+            "numbers": [
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31,
+              32,
+              33,
+              34,
+              35,
+              36
+            ],
+            "payout": 1
+          }
+        ],
+        "stakes": [
+          1,
+          2,
+          3,
+          1,
+          1,
+          11,
+          1
+        ]
+      },
+      "metrics": {
+        "total_stake": "20",
+        "alpha": "1/20",
+        "profitable_count": 29,
+        "worst_profit": "-15",
+        "conditional_positive_mean": "100/29",
+        "conditional_loss_mean": "15",
+        "expected_shortfall": "15"
+      }
+    },
+    "results/coverage-benchmark-060.json/results/0/optimisation": {
+      "allocation": {
+        "bets": [
+          {
+            "name": "split_7_8",
+            "numbers": [
+              7,
+              8
+            ],
+            "payout": 17
+          },
+          {
+            "name": "split_10_11",
+            "numbers": [
+              10,
+              11
+            ],
+            "payout": 17
+          },
+          {
+            "name": "split_9_12",
+            "numbers": [
+              9,
+              12
+            ],
+            "payout": 17
+          },
+          {
+            "name": "street_4_5_6",
+            "numbers": [
+              4,
+              5,
+              6
+            ],
+            "payout": 11
+          },
+          {
+            "name": "corner_0_1_2_3",
+            "numbers": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "payout": 8
+          },
+          {
+            "name": "six_line_16_17_18_19_20_21",
+            "numbers": [
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "payout": 5
+          },
+          {
+            "name": "dozen_1_2_3_4_5_6_7_8_9_10_11_12",
+            "numbers": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12
+            ],
+            "payout": 2
+          },
+          {
+            "name": "dozen_13_14_15_16_17_18_19_20_21_22_23_24",
+            "numbers": [
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24
+            ],
+            "payout": 2
+          },
+          {
+            "name": "dozen_25_26_27_28_29_30_31_32_33_34_35_36",
+            "numbers": [
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31,
+              32,
+              33,
+              34,
+              35,
+              36
+            ],
+            "payout": 2
+          }
+        ],
+        "stakes": [
+          1,
+          1,
+          1,
+          1,
+          2,
+          1,
+          1,
+          5,
+          7
+        ]
+      },
+      "metrics": {
+        "total_stake": "20",
+        "alpha": "1/20",
+        "profitable_count": 27,
+        "worst_profit": "-5",
+        "conditional_positive_mean": "1",
+        "conditional_loss_mean": "47/10",
+        "expected_shortfall": "5"
+      }
+    },
+    "results/coverage-benchmark-060.json/results/2/feasibility": {
+      "allocation": {
+        "bets": [
+          {
+            "name": "straight_0",
+            "numbers": [
+              0
+            ],
+            "payout": 35
+          },
+          {
+            "name": "corner_20_21_23_24",
+            "numbers": [
+              20,
+              21,
+              23,
+              24
+            ],
+            "payout": 8
+          },
+          {
+            "name": "six_line_28_29_30_31_32_33",
+            "numbers": [
+              28,
+              29,
+              30,
+              31,
+              32,
+              33
+            ],
+            "payout": 5
+          },
+          {
+            "name": "dozen_13_14_15_16_17_18_19_20_21_22_23_24",
+            "numbers": [
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24
+            ],
+            "payout": 2
+          },
+          {
+            "name": "dozen_25_26_27_28_29_30_31_32_33_34_35_36",
+            "numbers": [
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31,
+              32,
+              33,
+              34,
+              35,
+              36
+            ],
+            "payout": 2
+          },
+          {
+            "name": "low",
+            "numbers": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18
+            ],
+            "payout": 1
+          },
+          {
+            "name": "high",
+            "numbers": [
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31,
+              32,
+              33,
+              34,
+              35,
+              36
+            ],
+            "payout": 1
+          }
+        ],
+        "stakes": [
+          1,
+          2,
+          3,
+          1,
+          1,
+          11,
+          1
+        ]
+      },
+      "metrics": {
+        "total_stake": "20",
+        "alpha": "1/20",
+        "profitable_count": 29,
+        "worst_profit": "-15",
+        "conditional_positive_mean": "100/29",
+        "conditional_loss_mean": "15",
+        "expected_shortfall": "15"
+      }
+    },
+    "results/coverage-benchmark-060.json/results/2/optimisation": {
+      "allocation": {
+        "bets": [
+          {
+            "name": "split_4_7",
+            "numbers": [
+              4,
+              7
+            ],
+            "payout": 17
+          },
+          {
+            "name": "split_9_12",
+            "numbers": [
+              9,
+              12
+            ],
+            "payout": 17
+          },
+          {
+            "name": "street_0_2_3",
+            "numbers": [
+              0,
+              2,
+              3
+            ],
+            "payout": 11
+          },
+          {
+            "name": "corner_14_15_17_18",
+            "numbers": [
+              14,
+              15,
+              17,
+              18
+            ],
+            "payout": 8
+          },
+          {
+            "name": "dozen_13_14_15_16_17_18_19_20_21_22_23_24",
+            "numbers": [
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24
+            ],
+            "payout": 2
+          },
+          {
+            "name": "dozen_25_26_27_28_29_30_31_32_33_34_35_36",
+            "numbers": [
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31,
+              32,
+              33,
+              34,
+              35,
+              36
+            ],
+            "payout": 2
+          },
+          {
+            "name": "low",
+            "numbers": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18
+            ],
+            "payout": 1
+          },
+          {
+            "name": "high",
+            "numbers": [
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31,
+              32,
+              33,
+              34,
+              35,
+              36
+            ],
+            "payout": 1
+          }
+        ],
+        "stakes": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          5,
+          9
+        ]
+      },
+      "metrics": {
+        "total_stake": "20",
+        "alpha": "1/20",
+        "profitable_count": 28,
+        "worst_profit": "-10",
+        "conditional_positive_mean": "31/14",
+        "conditional_loss_mean": "82/9",
+        "expected_shortfall": "10"
+      }
+    },
+    "results/coverage-benchmark-060.json/results/4/feasibility": {
+      "allocation": {
+        "bets": [
+          {
+            "name": "street_0_1_2",
+            "numbers": [
+              0,
+              1,
+              2
+            ],
+            "payout": 11
+          },
+          {
+            "name": "dozen_1_2_3_4_5_6_7_8_9_10_11_12",
+            "numbers": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12
+            ],
+            "payout": 2
+          },
+          {
+            "name": "low",
+            "numbers": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18
+            ],
+            "payout": 1
+          },
+          {
+            "name": "high",
+            "numbers": [
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31,
+              32,
+              33,
+              34,
+              35,
+              36
+            ],
+            "payout": 1
+          }
+        ],
+        "stakes": [
+          1,
+          7,
+          1,
+          11
+        ]
+      },
+      "metrics": {
+        "total_stake": "20",
+        "alpha": "1/20",
+        "profitable_count": 30,
+        "worst_profit": "-18",
+        "conditional_positive_mean": "16/5",
+        "conditional_loss_mean": "116/7",
+        "expected_shortfall": "18"
+      }
+    },
+    "results/coverage-benchmark-060.json/results/4/optimisation": {
+      "allocation": {
+        "bets": [
+          {
+            "name": "street_0_2_3",
+            "numbers": [
+              0,
+              2,
+              3
+            ],
+            "payout": 11
+          },
+          {
+            "name": "corner_8_9_11_12",
+            "numbers": [
+              8,
+              9,
+              11,
+              12
+            ],
+            "payout": 8
+          },
+          {
+            "name": "corner_14_15_17_18",
+            "numbers": [
+              14,
+              15,
+              17,
+              18
+            ],
+            "payout": 8
+          },
+          {
+            "name": "corner_20_21_23_24",
+            "numbers": [
+              20,
+              21,
+              23,
+              24
+            ],
+            "payout": 8
+          },
+          {
+            "name": "corner_26_27_29_30",
+            "numbers": [
+              26,
+              27,
+              29,
+              30
+            ],
+            "payout": 8
+          },
+          {
+            "name": "column_1_4_7_10_13_16_19_22_25_28_31_34",
+            "numbers": [
+              1,
+              4,
+              7,
+              10,
+              13,
+              16,
+              19,
+              22,
+              25,
+              28,
+              31,
+              34
+            ],
+            "payout": 2
+          },
+          {
+            "name": "red",
+            "numbers": [
+              1,
+              3,
+              5,
+              7,
+              9,
+              12,
+              14,
+              16,
+              18,
+              19,
+              21,
+              23,
+              25,
+              27,
+              30,
+              32,
+              34,
+              36
+            ],
+            "payout": 1
+          },
+          {
+            "name": "black",
+            "numbers": [
+              2,
+              4,
+              6,
+              8,
+              10,
+              11,
+              13,
+              15,
+              17,
+              20,
+              22,
+              24,
+              26,
+              28,
+              29,
+              31,
+              33,
+              35
+            ],
+            "payout": 1
+          }
+        ],
+        "stakes": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          3,
+          6,
+          6
+        ]
+      },
+      "metrics": {
+        "total_stake": "20",
+        "alpha": "1/20",
+        "profitable_count": 30,
+        "worst_profit": "-8",
+        "conditional_positive_mean": "6/5",
+        "conditional_loss_mean": "8",
+        "expected_shortfall": "8"
+      }
+    },
+    "results/coverage-benchmark-060.json/results/6/feasibility": {
+      "allocation": {
+        "bets": [
+          {
+            "name": "split_8_9",
+            "numbers": [
+              8,
+              9
+            ],
+            "payout": 17
+          },
+          {
+            "name": "split_26_27",
+            "numbers": [
+              26,
+              27
+            ],
+            "payout": 17
+          },
+          {
+            "name": "split_35_36",
+            "numbers": [
+              35,
+              36
+            ],
+            "payout": 17
+          },
+          {
+            "name": "split_30_33",
+            "numbers": [
+              30,
+              33
+            ],
+            "payout": 17
+          },
+          {
+            "name": "corner_2_3_5_6",
+            "numbers": [
+              2,
+              3,
+              5,
+              6
+            ],
+            "payout": 8
+          },
+          {
+            "name": "corner_11_12_14_15",
+            "numbers": [
+              11,
+              12,
+              14,
+              15
+            ],
+            "payout": 8
+          },
+          {
+            "name": "corner_20_21_23_24",
+            "numbers": [
+              20,
+              21,
+              23,
+              24
+            ],
+            "payout": 8
+          },
+          {
+            "name": "column_1_4_7_10_13_16_19_22_25_28_31_34",
+            "numbers": [
+              1,
+              4,
+              7,
+              10,
+              13,
+              16,
+              19,
+              22,
+              25,
+              28,
+              31,
+              34
+            ],
+            "payout": 2
+          },
+          {
+            "name": "odd",
+            "numbers": [
+              1,
+              3,
+              5,
+              7,
+              9,
+              11,
+              13,
+              15,
+              17,
+              19,
+              21,
+              23,
+              25,
+              27,
+              29,
+              31,
+              33,
+              35
+            ],
+            "payout": 1
+          },
+          {
+            "name": "even",
+            "numbers": [
+              2,
+              4,
+              6,
+              8,
+              10,
+              12,
+              14,
+              16,
+              18,
+              20,
+              22,
+              24,
+              26,
+              28,
+              30,
+              32,
+              34,
+              36
+            ],
+            "payout": 1
+          }
+        ],
+        "stakes": [
+          1,
+          1,
+          1,
+          1,
+          2,
+          2,
+          2,
+          6,
+          2,
+          2
+        ]
+      },
+      "metrics": {
+        "total_stake": "20",
+        "alpha": "1/20",
+        "profitable_count": 32,
+        "worst_profit": "-20",
+        "conditional_positive_mean": "2",
+        "conditional_loss_mean": "84/5",
+        "expected_shortfall": "672/37"
+      }
+    },
+    "results/coverage-benchmark-060.json/results/6/optimisation": {
+      "allocation": {
+        "bets": [
+          {
+            "name": "straight_0",
+            "numbers": [
+              0
+            ],
+            "payout": 35
+          },
+          {
+            "name": "split_11_12",
+            "numbers": [
+              11,
+              12
+            ],
+            "payout": 17
+          },
+          {
+            "name": "split_13_16",
+            "numbers": [
+              13,
+              16
+            ],
+            "payout": 17
+          },
+          {
+            "name": "street_1_2_3",
+            "numbers": [
+              1,
+              2,
+              3
+            ],
+            "payout": 11
+          },
+          {
+            "name": "six_line_4_5_6_7_8_9",
+            "numbers": [
+              4,
+              5,
+              6,
+              7,
+              8,
+              9
+            ],
+            "payout": 5
+          },
+          {
+            "name": "dozen_1_2_3_4_5_6_7_8_9_10_11_12",
+            "numbers": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12
+            ],
+            "payout": 2
+          },
+          {
+            "name": "column_1_4_7_10_13_16_19_22_25_28_31_34",
+            "numbers": [
+              1,
+              4,
+              7,
+              10,
+              13,
+              16,
+              19,
+              22,
+              25,
+              28,
+              31,
+              34
+            ],
+            "payout": 2
+          },
+          {
+            "name": "column_2_5_8_11_14_17_20_23_26_29_32_35",
+            "numbers": [
+              2,
+              5,
+              8,
+              11,
+              14,
+              17,
+              20,
+              23,
+              26,
+              29,
+              32,
+              35
+            ],
+            "payout": 2
+          },
+          {
+            "name": "column_3_6_9_12_15_18_21_24_27_30_33_36",
+            "numbers": [
+              3,
+              6,
+              9,
+              12,
+              15,
+              18,
+              21,
+              24,
+              27,
+              30,
+              33,
+              36
+            ],
+            "payout": 2
+          },
+          {
+            "name": "high",
+            "numbers": [
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31,
+              32,
+              33,
+              34,
+              35,
+              36
+            ],
+            "payout": 1
+          }
+        ],
+        "stakes": [
+          1,
+          1,
+          1,
+          1,
+          2,
+          2,
+          1,
+          1,
+          1,
+          9
+        ]
+      },
+      "metrics": {
+        "total_stake": "20",
+        "alpha": "1/20",
+        "profitable_count": 32,
+        "worst_profit": "-17",
+        "conditional_positive_mean": "59/32",
+        "conditional_loss_mean": "79/5",
+        "expected_shortfall": "17"
+      }
+    },
+    "results/coverage-benchmark-060.json/results/8/feasibility": {
+      "allocation": {
+        "bets": [
+          {
+            "name": "split_15_18",
+            "numbers": [
+              15,
+              18
+            ],
+            "payout": 17
+          },
+          {
+            "name": "split_19_22",
+            "numbers": [
+              19,
+              22
+            ],
+            "payout": 17
+          },
+          {
+            "name": "split_25_28",
+            "numbers": [
+              25,
+              28
+            ],
+            "payout": 17
+          },
+          {
+            "name": "corner_13_14_16_17",
+            "numbers": [
+              13,
+              14,
+              16,
+              17
+            ],
+            "payout": 8
+          },
+          {
+            "name": "corner_20_21_23_24",
+            "numbers": [
+              20,
+              21,
+              23,
+              24
+            ],
+            "payout": 8
+          },
+          {
+            "name": "corner_26_27_29_30",
+            "numbers": [
+              26,
+              27,
+              29,
+              30
+            ],
+            "payout": 8
+          },
+          {
+            "name": "corner_31_32_34_35",
+            "numbers": [
+              31,
+              32,
+              34,
+              35
+            ],
+            "payout": 8
+          },
+          {
+            "name": "dozen_1_2_3_4_5_6_7_8_9_10_11_12",
+            "numbers": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12
+            ],
+            "payout": 2
+          },
+          {
+            "name": "dozen_13_14_15_16_17_18_19_20_21_22_23_24",
+            "numbers": [
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24
+            ],
+            "payout": 2
+          },
+          {
+            "name": "dozen_25_26_27_28_29_30_31_32_33_34_35_36",
+            "numbers": [
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31,
+              32,
+              33,
+              34,
+              35,
+              36
+            ],
+            "payout": 2
+          }
+        ],
+        "stakes": [
+          1,
+          1,
+          1,
+          2,
+          2,
+          2,
+          2,
+          7,
+          1,
+          1
+        ]
+      },
+      "metrics": {
+        "total_stake": "20",
+        "alpha": "1/20",
+        "profitable_count": 34,
+        "worst_profit": "-20",
+        "conditional_positive_mean": "1",
+        "conditional_loss_mean": "18",
+        "expected_shortfall": "689/37"
+      }
+    },
+    "results/coverage-benchmark-060.json/results/8/optimisation": {
+      "allocation": {
+        "bets": [
+          {
+            "name": "split_15_18",
+            "numbers": [
+              15,
+              18
+            ],
+            "payout": 17
+          },
+          {
+            "name": "split_19_22",
+            "numbers": [
+              19,
+              22
+            ],
+            "payout": 17
+          },
+          {
+            "name": "split_25_28",
+            "numbers": [
+              25,
+              28
+            ],
+            "payout": 17
+          },
+          {
+            "name": "corner_13_14_16_17",
+            "numbers": [
+              13,
+              14,
+              16,
+              17
+            ],
+            "payout": 8
+          },
+          {
+            "name": "corner_20_21_23_24",
+            "numbers": [
+              20,
+              21,
+              23,
+              24
+            ],
+            "payout": 8
+          },
+          {
+            "name": "corner_26_27_29_30",
+            "numbers": [
+              26,
+              27,
+              29,
+              30
+            ],
+            "payout": 8
+          },
+          {
+            "name": "corner_31_32_34_35",
+            "numbers": [
+              31,
+              32,
+              34,
+              35
+            ],
+            "payout": 8
+          },
+          {
+            "name": "dozen_1_2_3_4_5_6_7_8_9_10_11_12",
+            "numbers": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12
+            ],
+            "payout": 2
+          },
+          {
+            "name": "dozen_13_14_15_16_17_18_19_20_21_22_23_24",
+            "numbers": [
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24
+            ],
+            "payout": 2
+          },
+          {
+            "name": "dozen_25_26_27_28_29_30_31_32_33_34_35_36",
+            "numbers": [
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31,
+              32,
+              33,
+              34,
+              35,
+              36
+            ],
+            "payout": 2
+          }
+        ],
+        "stakes": [
+          1,
+          1,
+          1,
+          2,
+          2,
+          2,
+          2,
+          7,
+          1,
+          1
+        ]
+      },
+      "metrics": {
+        "total_stake": "20",
+        "alpha": "1/20",
+        "profitable_count": 34,
+        "worst_profit": "-20",
+        "conditional_positive_mean": "1",
+        "conditional_loss_mean": "18",
+        "expected_shortfall": "689/37"
+      }
+    }
+  }
+}

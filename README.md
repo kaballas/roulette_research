@@ -118,7 +118,24 @@ PYTHONPATH=src python experiments/coverage_frontier.py \
 ```
 
 The separately registered `--seconds 300` and `--seconds 900` tiers require
-their own fresh outputs. The frontier compares supplied candidates by
+their own fresh outputs and remain not tested. The
+[60-second benchmark](results/coverage-benchmark-060.json) establishes:
+
+| Target | Best verified worst loss | Optimality |
+| --- | ---: | --- |
+| 70% | 5 chips | Proved by exact bound and allocation |
+| 75% | 8 chips | Unresolved; lower bound 6 |
+| 80% | 8 chips | Proved by exact bound and allocation |
+| 85% | 17 chips | Unresolved; lower bound 11 |
+| 90% | 20 chips | Proved by modulo-three bound and allocation |
+
+All five targets are feasible. The 80% allocation supplies the best retained
+75% witness. The 90% allocation profits one chip on 34 pockets, loses17 on
+two and loses20 on one: expected profit remains -20/37. These are optima for
+the declared minimum frequency, budget and position constraints, not universal
+best roulette arrangements. Source and registration hashes identify this run.
+
+The [candidate frontier](results/coverage-candidate-frontier.json) compares supplied candidates by
 profitable-pocket count, worst profit and exact 5% expected shortfall. It also
 reports conditional mean gains and losses. It establishes no complete global
 Pareto frontier. One-spin metrics establish no survival probability over

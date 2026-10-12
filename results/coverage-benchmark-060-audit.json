@@ -1,0 +1,169 @@
+{
+  "source": "results/coverage-benchmark-060.json",
+  "source_sha256": "dd4e7772936b9074b71d9635f3f6b69c6e8bb68155965b5b966e94e0cfcd398a",
+  "audit": "Independent scalar Fraction settlement and current source/registration hash verification. Bounds independently derived in docs/MATHEMATICS.md.",
+  "verified_stages": [
+    {
+      "target": 70,
+      "backend": "highs",
+      "stage": "feasibility",
+      "profitable_count": 29,
+      "worst_profit": -15,
+      "optimality_evidence": "exact_feasible_allocation"
+    },
+    {
+      "target": 70,
+      "backend": "highs",
+      "stage": "optimisation",
+      "profitable_count": 27,
+      "worst_profit": -5,
+      "optimality_evidence": "analytical_bound_attained"
+    },
+    {
+      "target": 75,
+      "backend": "highs",
+      "stage": "feasibility",
+      "profitable_count": 29,
+      "worst_profit": -15,
+      "optimality_evidence": "exact_feasible_allocation"
+    },
+    {
+      "target": 75,
+      "backend": "highs",
+      "stage": "optimisation",
+      "profitable_count": 28,
+      "worst_profit": -10,
+      "optimality_evidence": "none"
+    },
+    {
+      "target": 80,
+      "backend": "highs",
+      "stage": "feasibility",
+      "profitable_count": 30,
+      "worst_profit": -18,
+      "optimality_evidence": "exact_feasible_allocation"
+    },
+    {
+      "target": 80,
+      "backend": "highs",
+      "stage": "optimisation",
+      "profitable_count": 30,
+      "worst_profit": -8,
+      "optimality_evidence": "analytical_bound_attained"
+    },
+    {
+      "target": 85,
+      "backend": "highs",
+      "stage": "feasibility",
+      "profitable_count": 32,
+      "worst_profit": -20,
+      "optimality_evidence": "exact_feasible_allocation"
+    },
+    {
+      "target": 85,
+      "backend": "highs",
+      "stage": "optimisation",
+      "profitable_count": 32,
+      "worst_profit": -17,
+      "optimality_evidence": "none"
+    },
+    {
+      "target": 90,
+      "backend": "highs",
+      "stage": "feasibility",
+      "profitable_count": 34,
+      "worst_profit": -20,
+      "optimality_evidence": "exact_feasible_allocation"
+    },
+    {
+      "target": 90,
+      "backend": "highs",
+      "stage": "optimisation",
+      "profitable_count": 34,
+      "worst_profit": -20,
+      "optimality_evidence": "analytical_bound_attained"
+    }
+  ],
+  "summary": [
+    {
+      "target_percentage": 70,
+      "required_profitable_count": 26,
+      "feasibility": "exact_witness",
+      "minimum_worst_loss_lower_bound": 5,
+      "best_verified_worst_loss": 5,
+      "optimality": "proved_by_exact_bound_and_witness",
+      "witness": {
+        "target": 70,
+        "backend": "highs",
+        "stage": "optimisation",
+        "profitable_count": 27,
+        "worst_profit": -5,
+        "optimality_evidence": "analytical_bound_attained"
+      }
+    },
+    {
+      "target_percentage": 75,
+      "required_profitable_count": 28,
+      "feasibility": "exact_witness",
+      "minimum_worst_loss_lower_bound": 6,
+      "best_verified_worst_loss": 8,
+      "optimality": "not_established",
+      "witness": {
+        "target": 80,
+        "backend": "highs",
+        "stage": "optimisation",
+        "profitable_count": 30,
+        "worst_profit": -8,
+        "optimality_evidence": "analytical_bound_attained"
+      }
+    },
+    {
+      "target_percentage": 80,
+      "required_profitable_count": 30,
+      "feasibility": "exact_witness",
+      "minimum_worst_loss_lower_bound": 8,
+      "best_verified_worst_loss": 8,
+      "optimality": "proved_by_exact_bound_and_witness",
+      "witness": {
+        "target": 80,
+        "backend": "highs",
+        "stage": "optimisation",
+        "profitable_count": 30,
+        "worst_profit": -8,
+        "optimality_evidence": "analytical_bound_attained"
+      }
+    },
+    {
+      "target_percentage": 85,
+      "required_profitable_count": 32,
+      "feasibility": "exact_witness",
+      "minimum_worst_loss_lower_bound": 11,
+      "best_verified_worst_loss": 17,
+      "optimality": "not_established",
+      "witness": {
+        "target": 85,
+        "backend": "highs",
+        "stage": "optimisation",
+        "profitable_count": 32,
+        "worst_profit": -17,
+        "optimality_evidence": "none"
+      }
+    },
+    {
+      "target_percentage": 90,
+      "required_profitable_count": 34,
+      "feasibility": "exact_witness",
+      "minimum_worst_loss_lower_bound": 20,
+      "best_verified_worst_loss": 20,
+      "optimality": "proved_by_exact_bound_and_witness",
+      "witness": {
+        "target": 90,
+        "backend": "highs",
+        "stage": "feasibility",
+        "profitable_count": 34,
+        "worst_profit": -20,
+        "optimality_evidence": "exact_feasible_allocation"
+      }
+    }
+  ]
+}

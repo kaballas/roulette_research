@@ -141,6 +141,25 @@ reports conditional mean gains and losses. It establishes no complete global
 Pareto frontier. One-spin metrics establish no survival probability over
 100, 500 or 1,000 spins; bankroll/session evaluation remains a separate stage.
 
+### Combination Explorer (C4)
+
+`experiments/explore_combinations.py` returns up to 20 *distinct* portfolios per
+search cell (chip budget × position limit × target × objective × stake mode),
+each with exact positions, chips and net profit on all 37 pockets. Objectives:
+highest winning frequency, lowest worst loss, smallest 5% expected-shortfall tail.
+Distinct means occupied bet sets differ by at least `--min-distance` positions
+and the sorted 37-pocket P&L differs (mirror twins are dropped). Every output has
+expectation exactly -stake/37. Lists are time-limited best-found alternatives,
+not exhaustive enumerations; see the
+[registration](docs/COMBINATION_EXPLORER_REGISTER.md).
+
+```sh
+PYTHONPATH=src python experiments/explore_combinations.py \
+  --chip-budgets 20 --max-bets 10 --targets 70 80 90 --count 10 --seconds 30 --jobs 8 \
+  --output results/combination-explorer-20chips-10bets.json \
+  --markdown results/combination-explorer-20chips-10bets.md
+```
+
 Local verification: **274 tests passed, four CP-SAT runtime checks skipped**.
 OR-Tools and Ruff could not be installed because package-host DNS failed;
 CP-SAT comparisons and local Ruff checks remain unverified. GitHub Actions

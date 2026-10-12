@@ -93,4 +93,30 @@ mixed-integer bounds are separate evidence for optimality, not formal proof.
 
 ## Reproduction and falsifiable checks
 
+## A stronger 90% integer-budget bound
+
+For B=20 and at least34 profitable pockets, the gross-return budget is720.
+Each profitable pocket requires at least21 receipts, consuming at least714.
+All gross multipliers except even-money payouts are divisible by3. Thus gross
+receipts modulo3 depend only on the six even-money stakes modulo3. Exhausting
+their3^6 residue assignments on the fixed red/black, odd/even, low/high layout
+gives either zero nonzero residues among numbered pockets, or at least16.
+This small finite lemma is independently checked in the research cycle; it is
+not a solver-infeasibility assertion.
+
+There can be at most three nonprofitable pockets. Of the profitable pockets,
+at most six can have gross receipts not divisible by3: each such pocket
+requires at least one of the six receipts left over after the714 minimum.
+Therefore at most nine numbered pockets can have nonzero residues, ruling
+out the16-or-more case. All numbered gross receipts are divisible by3;
+zero's receipts already are divisible by3 because no even-money bet covers it.
+
+If every pocket avoided a full20-chip loss, each gross receipt would be
+positive and hence at least3. With at least34 profitable pockets, total
+receipts would then be at least34*21+3*3=723, contradicting720. Consequently
+any feasible34-profitable-pocket portfolio has worst profit exactly-20.
+This strengthens the earlier-18 bound, but establishes neither existence
+nor impossibility of such a portfolio. Its scope is standard payouts, this
+European catalogue, integer chips and B=20.
+
 `roulette.theory.distribution` enumerates ordinary settlement exactly and analytically resolves the en-prison absorbing state. `moments` computes rational mean and variance. Tests should enumerate every wheel/pocket and supported coverage, independently check the basket and French laws, and verify imprisoned zero/win/loss transitions. Fair-wheel Monte Carlo estimates must use declared sample sizes and uncertainty limits; an estimate outside its interval is evidence to investigate, not permission to tune the limit.

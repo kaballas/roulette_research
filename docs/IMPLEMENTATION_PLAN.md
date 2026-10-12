@@ -22,3 +22,12 @@ spin targets before runs. Minimise worst-case loss; independently re-settle
 all 37 outcomes and verify EV=-20/37. Compare solver bounds with exact
 analytical bounds, preserve incomplete statuses, and test against a small
 independent exhaustive oracle. Record scope, certificates and remaining gaps.
+
+Solver cycle C3 (13 October 2026): separate feasibility from worst-loss search;
+use exact payout-lattice and modulo-three bounds and validated incumbent floors.
+Register distinct60/300/900-second tiers before benchmarking, retaining missing
+backend statuses. Independently settle every retained portfolio and compute
+conditional means and an unweighted candidate Pareto frontier with exact
+expected shortfall. Add CI checks without regenerating research artefacts.
+Global Pareto completeness, unavailable backend execution and session survival
+remain explicit gaps until their own evidence is obtained.

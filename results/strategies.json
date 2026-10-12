@@ -1,0 +1,642 @@
+{
+  "experiment": "P2-001",
+  "metadata": {
+    "python": "3.14.7",
+    "numpy": "2.4.6",
+    "scipy": "1.17.1",
+    "sympy": "1.14.0",
+    "code_sha256": {
+      "src/roulette/__init__.py": "d5429a85fd8df84a8216915c9eaa2a310a3d119d23054bbef8410e732ae0b344",
+      "src/roulette/evaluation.py": "c84c94f4a4e6d36cb04399ca4fc7dc15f1981f50b491ff80348fb5a1c7e378da",
+      "src/roulette/rules.py": "447f07f03b89b0a25d4c2d850eb032b5522231e41891d34e9a6bfb88126ed766",
+      "src/roulette/simulation.py": "b0f56c426bf159a8fb3ac052dea3a6816ef47d1e3007065c2f665c19e054d294",
+      "src/roulette/statistics.py": "9380b281acaa4e64c5e43d93d8265e44c80cfd0998317486dc6e03b1c74161a1",
+      "src/roulette/strategies.py": "97ffaff8a99770e0665b63c230c3261814cbab23ce0055da8042a1ae79564230",
+      "src/roulette/theory.py": "a8a80ea97ed20755e9fa15892c1324ef6dfc47bb61b0adcc595b672f486911fe",
+      "experiments/baseline.py": "8fbaf01436d54d5e0b6de121bc3918a5a2fba70c969fcbd141e2a7036f6c1c9c",
+      "experiments/strategies.py": "357cd6e9a8730cc11deb4b5e8dc15322f1c31495a11bb2a48384ba92a0d39445",
+      "tests/test_rules.py": "3b682476a69831e08e79285d9bff8ee54f5994e2bf5b9f207812354d9ecbb7b1",
+      "tests/test_simulation.py": "360c1319f3fa23965cfd2dc9db7dff0a9fd3d5ddb530d976f789e0d9cd4f3814"
+    },
+    "rng": "NumPy default_rng / PCG64"
+  },
+  "configuration": {
+    "sessions": 20000,
+    "max_wagers": 100,
+    "bankroll": 100,
+    "table_min": 1,
+    "table_max": 64,
+    "alpha_family": 0.01,
+    "interval_comparisons": 48
+  },
+  "results": [
+    {
+      "sessions": 20000,
+      "mean_profit": {
+        "estimate": -2.7844,
+        "se": 0.07076839859931842,
+        "low": -3.046858135560017,
+        "high": -2.5219418644399836
+      },
+      "return_per_unit_staked": {
+        "estimate": -0.027844,
+        "se": 0.0007076839859931842,
+        "low": -0.030468581355600165,
+        "high": -0.025219418644399836
+      },
+      "staking_identity_residual": {
+        "estimate": -0.08169729729729804,
+        "se": 0.07076839859931842,
+        "low": -0.3441554328573144,
+        "high": 0.18076083826271838
+      },
+      "mean_turnover": 100.0,
+      "winning_session_fraction": 0.35115,
+      "ruin_fraction": 0.0,
+      "limit_stop_fraction": 0.0,
+      "bankroll_stop_fraction": 0.0,
+      "mean_max_drawdown": 12.80775,
+      "profit_fifth_percentile": -20.0,
+      "lower_tail_mean_including_ties": -23.225556631171347,
+      "wheel": "european",
+      "strategy": "flat",
+      "bet": "red",
+      "base": 1,
+      "seed": 2026101300,
+      "house_edge": 0.02702702702702703,
+      "elapsed_seconds": 0.7224682990054134,
+      "residual_covers_zero": true,
+      "return_covers_benchmark": true
+    },
+    {
+      "sessions": 20000,
+      "mean_profit": {
+        "estimate": -6.4878,
+        "se": 0.3932829848001394,
+        "low": -7.946365136149866,
+        "high": -5.029234863850134
+      },
+      "return_per_unit_staked": {
+        "estimate": -0.028045261121187968,
+        "se": 0.0017441931156492697,
+        "low": -0.03451393474176545,
+        "high": -0.02157658750061049
+      },
+      "staking_identity_residual": {
+        "estimate": -0.23555135135135097,
+        "se": 0.40310458640409796,
+        "low": -1.7305417747227518,
+        "high": 1.25943907202005
+      },
+      "mean_turnover": 231.3332,
+      "winning_session_fraction": 0.4891,
+      "ruin_fraction": 0.0056,
+      "limit_stop_fraction": 0.1037,
+      "bankroll_stop_fraction": 0.4985,
+      "mean_max_drawdown": 54.5742,
+      "profit_fifth_percentile": -91.0,
+      "lower_tail_mean_including_ties": -95.69318181818181,
+      "wheel": "european",
+      "strategy": "martingale",
+      "bet": "red",
+      "base": 1,
+      "seed": 2026101301,
+      "house_edge": 0.02702702702702703,
+      "elapsed_seconds": 0.5328631779993884,
+      "residual_covers_zero": true,
+      "return_covers_benchmark": true
+    },
+    {
+      "sessions": 20000,
+      "mean_profit": {
+        "estimate": -4.66085,
+        "se": 0.13843848678964324,
+        "low": -5.174275594639775,
+        "high": -4.1474244053602245
+      },
+      "return_per_unit_staked": {
+        "estimate": -0.02762673602518435,
+        "se": 0.0008267567291937176,
+        "low": -0.030692921413021716,
+        "high": -0.024560550637346985
+      },
+      "staking_identity_residual": {
+        "estimate": -0.10117567567567544,
+        "se": 0.1394577022381406,
+        "low": -0.6183812256576815,
+        "high": 0.41602987430633065
+      },
+      "mean_turnover": 168.70795,
+      "winning_session_fraction": 0.38675,
+      "ruin_fraction": 0.0,
+      "limit_stop_fraction": 0.0,
+      "bankroll_stop_fraction": 0.0,
+      "mean_max_drawdown": 24.60775,
+      "profit_fifth_percentile": -36.0,
+      "lower_tail_mean_including_ties": -42.18518518518518,
+      "wheel": "european",
+      "strategy": "reverse_martingale",
+      "bet": "red",
+      "base": 1,
+      "seed": 2026101302,
+      "house_edge": 0.02702702702702703,
+      "elapsed_seconds": 0.7214420220116153,
+      "residual_covers_zero": true,
+      "return_covers_benchmark": true
+    },
+    {
+      "sessions": 20000,
+      "mean_profit": {
+        "estimate": -5.47965,
+        "se": 0.29126145635094386,
+        "low": -6.559848793633576,
+        "high": -4.399451206366424
+      },
+      "return_per_unit_staked": {
+        "estimate": -0.025665633652605168,
+        "se": 0.0013649212826183977,
+        "low": -0.030727705171991804,
+        "high": -0.020603562133218532
+      },
+      "staking_identity_residual": {
+        "estimate": 0.29065945945945976,
+        "se": 0.29144020335544846,
+        "low": -0.7902022516128002,
+        "high": 1.3715211705317198
+      },
+      "mean_turnover": 213.50145,
+      "winning_session_fraction": 0.74145,
+      "ruin_fraction": 0.0,
+      "limit_stop_fraction": 0.0,
+      "bankroll_stop_fraction": 0.2272,
+      "mean_max_drawdown": 39.07475,
+      "profit_fifth_percentile": -85.0,
+      "lower_tail_mean_including_ties": -86.49098712446352,
+      "wheel": "european",
+      "strategy": "fibonacci",
+      "bet": "red",
+      "base": 1,
+      "seed": 2026101303,
+      "house_edge": 0.02702702702702703,
+      "elapsed_seconds": 0.6135250630031805,
+      "residual_covers_zero": true,
+      "return_covers_benchmark": true
+    },
+    {
+      "sessions": 20000,
+      "mean_profit": {
+        "estimate": -12.3559,
+        "se": 0.42087199172809187,
+        "low": -13.916784242750825,
+        "high": -10.795015757249175
+      },
+      "return_per_unit_staked": {
+        "estimate": -0.026664453962334102,
+        "se": 0.0009081918044288288,
+        "low": -0.030032656895268253,
+        "high": -0.02329625102939995
+      },
+      "staking_identity_residual": {
+        "estimate": 0.1680108108108117,
+        "se": 0.4208595029101592,
+        "low": -1.3928271147711233,
+        "high": 1.728848736392747
+      },
+      "mean_turnover": 463.3847,
+      "winning_session_fraction": 0.54905,
+      "ruin_fraction": 0.01285,
+      "limit_stop_fraction": 0.0,
+      "bankroll_stop_fraction": 0.2908,
+      "mean_max_drawdown": 66.30035,
+      "profit_fifth_percentile": -97.0,
+      "lower_tail_mean_including_ties": -98.3296783625731,
+      "wheel": "european",
+      "strategy": "dalembert",
+      "bet": "red",
+      "base": 1,
+      "seed": 2026101304,
+      "house_edge": 0.02702702702702703,
+      "elapsed_seconds": 0.6038432760105934,
+      "residual_covers_zero": true,
+      "return_covers_benchmark": true
+    },
+    {
+      "sessions": 20000,
+      "mean_profit": {
+        "estimate": -15.1619,
+        "se": 0.592779532202479,
+        "low": -17.36033622152416,
+        "high": -12.963463778475838
+      },
+      "return_per_unit_staked": {
+        "estimate": -0.02730165921427172,
+        "se": 0.0011222191843233268,
+        "low": -0.03146362360285151,
+        "high": -0.023139694825691937
+      },
+      "staking_identity_residual": {
+        "estimate": -0.15251621621621553,
+        "se": 0.6229021082065408,
+        "low": -2.462667769622524,
+        "high": 2.157635337190093
+      },
+      "mean_turnover": 555.3472,
+      "winning_session_fraction": 0.38575,
+      "ruin_fraction": 0.0152,
+      "limit_stop_fraction": 0.02125,
+      "bankroll_stop_fraction": 0.5807,
+      "mean_max_drawdown": 93.58775,
+      "profit_fifth_percentile": -97.0,
+      "lower_tail_mean_including_ties": -98.7578646329838,
+      "wheel": "european",
+      "strategy": "labouchere",
+      "bet": "red",
+      "base": 1,
+      "seed": 2026101305,
+      "house_edge": 0.02702702702702703,
+      "elapsed_seconds": 1.8798920239787549,
+      "residual_covers_zero": true,
+      "return_covers_benchmark": true
+    },
+    {
+      "sessions": 20000,
+      "mean_profit": {
+        "estimate": -11.2722,
+        "se": 0.7718206920762334,
+        "low": -14.13464459163049,
+        "high": -8.40975540836951
+      },
+      "return_per_unit_staked": {
+        "estimate": -0.025763462152929673,
+        "se": 0.001817556644695579,
+        "low": -0.032504218446461446,
+        "high": -0.0190227058593979
+      },
+      "staking_identity_residual": {
+        "estimate": 0.5528432432432463,
+        "se": 0.796398994371556,
+        "low": -2.400754681277879,
+        "high": 3.5064411677643714
+      },
+      "mean_turnover": 437.5266,
+      "winning_session_fraction": 0.3863,
+      "ruin_fraction": 0.0,
+      "limit_stop_fraction": 0.0,
+      "bankroll_stop_fraction": 0.49175,
+      "mean_max_drawdown": 119.9325,
+      "profit_fifth_percentile": -96.0,
+      "lower_tail_mean_including_ties": -96.0,
+      "wheel": "european",
+      "strategy": "flat",
+      "bet": "six_number_portfolio",
+      "base": 6,
+      "seed": 2026101306,
+      "house_edge": 0.02702702702702703,
+      "elapsed_seconds": 0.6986791460076347,
+      "residual_covers_zero": true,
+      "return_covers_benchmark": true
+    },
+    {
+      "sessions": 20000,
+      "mean_profit": {
+        "estimate": -5.3794,
+        "se": 0.4031495619003734,
+        "low": -6.87455722359766,
+        "high": -3.884242776402341
+      },
+      "return_per_unit_staked": {
+        "estimate": -0.026989790901118044,
+        "se": 0.0020237980702943977,
+        "low": -0.034495432950287466,
+        "high": -0.019484148851948623
+      },
+      "staking_identity_residual": {
+        "estimate": 0.007421621621622285,
+        "se": 0.4033683528994235,
+        "low": -1.4885470302240202,
+        "high": 1.5033902734672648
+      },
+      "mean_turnover": 199.3124,
+      "winning_session_fraction": 0.4372,
+      "ruin_fraction": 0.0424,
+      "limit_stop_fraction": 0.0,
+      "bankroll_stop_fraction": 0.0,
+      "mean_max_drawdown": 58.8324,
+      "profit_fifth_percentile": -96.0,
+      "lower_tail_mean_including_ties": -99.42775665399239,
+      "wheel": "european",
+      "strategy": "flat",
+      "bet": "red_and_zero",
+      "base": 2,
+      "seed": 2026101307,
+      "house_edge": 0.02702702702702703,
+      "elapsed_seconds": 0.7894363060186151,
+      "residual_covers_zero": true,
+      "return_covers_benchmark": true
+    },
+    {
+      "sessions": 20000,
+      "mean_profit": {
+        "estimate": -5.2479,
+        "se": 0.07061597985109684,
+        "low": -5.509792861493139,
+        "high": -4.98600713850686
+      },
+      "return_per_unit_staked": {
+        "estimate": -0.052479,
+        "se": 0.0007061597985109684,
+        "low": -0.05509792861493139,
+        "high": -0.04986007138506861
+      },
+      "staking_identity_residual": {
+        "estimate": 0.015257894736842305,
+        "se": 0.07061597985109684,
+        "low": -0.24663496675629687,
+        "high": 0.2771507562299815
+      },
+      "mean_turnover": 100.0,
+      "winning_session_fraction": 0.2702,
+      "ruin_fraction": 0.0,
+      "limit_stop_fraction": 0.0,
+      "bankroll_stop_fraction": 0.0,
+      "mean_max_drawdown": 14.02735,
+      "profit_fifth_percentile": -22.0,
+      "lower_tail_mean_including_ties": -25.22309711286089,
+      "wheel": "american",
+      "strategy": "flat",
+      "bet": "red",
+      "base": 1,
+      "seed": 2026101308,
+      "house_edge": 0.05263157894736842,
+      "elapsed_seconds": 0.7274582340032794,
+      "residual_covers_zero": true,
+      "return_covers_benchmark": true
+    },
+    {
+      "sessions": 20000,
+      "mean_profit": {
+        "estimate": -12.3111,
+        "se": 0.3876191858914669,
+        "low": -13.748659855103824,
+        "high": -10.873540144896175
+      },
+      "return_per_unit_staked": {
+        "estimate": -0.053129322305632457,
+        "se": 0.0017635801086704048,
+        "low": -0.0596698962961936,
+        "high": -0.046588748315071316
+      },
+      "staking_identity_residual": {
+        "estimate": -0.11533684210526385,
+        "se": 0.40844396973889835,
+        "low": -1.6301293893459115,
+        "high": 1.3994557051353838
+      },
+      "mean_turnover": 231.7195,
+      "winning_session_fraction": 0.44095,
+      "ruin_fraction": 0.0072,
+      "limit_stop_fraction": 0.1089,
+      "bankroll_stop_fraction": 0.54485,
+      "mean_max_drawdown": 57.1224,
+      "profit_fifth_percentile": -93.0,
+      "lower_tail_mean_including_ties": -96.6013986013986,
+      "wheel": "american",
+      "strategy": "martingale",
+      "bet": "red",
+      "base": 1,
+      "seed": 2026101309,
+      "house_edge": 0.05263157894736842,
+      "elapsed_seconds": 0.45053386499057524,
+      "residual_covers_zero": true,
+      "return_covers_benchmark": true
+    },
+    {
+      "sessions": 20000,
+      "mean_profit": {
+        "estimate": -8.9067,
+        "se": 0.13622111644355384,
+        "low": -9.411902052799078,
+        "high": -8.401497947200923
+      },
+      "return_per_unit_staked": {
+        "estimate": -0.05339661768064905,
+        "se": 0.0008288926844142342,
+        "low": -0.056470724666769154,
+        "high": -0.05032251069452895
+      },
+      "staking_identity_residual": {
+        "estimate": -0.1276105263157899,
+        "se": 0.13823202569403878,
+        "low": -0.640270420511716,
+        "high": 0.38504936788013616
+      },
+      "mean_turnover": 166.8027,
+      "winning_session_fraction": 0.30055,
+      "ruin_fraction": 0.0,
+      "limit_stop_fraction": 0.0,
+      "bankroll_stop_fraction": 0.0,
+      "mean_max_drawdown": 26.44665,
+      "profit_fifth_percentile": -39.0,
+      "lower_tail_mean_including_ties": -45.196706312900275,
+      "wheel": "american",
+      "strategy": "reverse_martingale",
+      "bet": "red",
+      "base": 1,
+      "seed": 2026101310,
+      "house_edge": 0.05263157894736842,
+      "elapsed_seconds": 0.7703607289877255,
+      "residual_covers_zero": true,
+      "return_covers_benchmark": true
+    },
+    {
+      "sessions": 20000,
+      "mean_profit": {
+        "estimate": -11.9927,
+        "se": 0.30817835100847285,
+        "low": -13.135638331607563,
+        "high": -10.849761668392436
+      },
+      "return_per_unit_staked": {
+        "estimate": -0.05374470068386947,
+        "se": 0.0013920800683344392,
+        "low": -0.058907495752243896,
+        "high": -0.04858190561549504
+      },
+      "staking_identity_residual": {
+        "estimate": -0.24838421052631637,
+        "se": 0.31054669544560515,
+        "low": -1.4001060002541224,
+        "high": 0.9033375792014897
+      },
+      "mean_turnover": 223.142,
+      "winning_session_fraction": 0.6807,
+      "ruin_fraction": 0.0,
+      "limit_stop_fraction": 0.0,
+      "bankroll_stop_fraction": 0.27785,
+      "mean_max_drawdown": 43.59725,
+      "profit_fifth_percentile": -86.0,
+      "lower_tail_mean_including_ties": -87.0048465266559,
+      "wheel": "american",
+      "strategy": "fibonacci",
+      "bet": "red",
+      "base": 1,
+      "seed": 2026101311,
+      "house_edge": 0.05263157894736842,
+      "elapsed_seconds": 0.6055916149925906,
+      "residual_covers_zero": true,
+      "return_covers_benchmark": true
+    },
+    {
+      "sessions": 20000,
+      "mean_profit": {
+        "estimate": -25.129,
+        "se": 0.42315855315479023,
+        "low": -26.69836439294177,
+        "high": -23.559635607058233
+      },
+      "return_per_unit_staked": {
+        "estimate": -0.0530636110833664,
+        "se": 0.0009110363857760867,
+        "low": -0.05644236369004797,
+        "high": -0.04968485847668483
+      },
+      "staking_identity_residual": {
+        "estimate": -0.2045947368421066,
+        "se": 0.43132548804868936,
+        "low": -1.8042477691754317,
+        "high": 1.3950582954912185
+      },
+      "mean_turnover": 473.5637,
+      "winning_session_fraction": 0.45335,
+      "ruin_fraction": 0.01515,
+      "limit_stop_fraction": 0.0,
+      "bankroll_stop_fraction": 0.3708,
+      "mean_max_drawdown": 72.7078,
+      "profit_fifth_percentile": -98.0,
+      "lower_tail_mean_including_ties": -98.875,
+      "wheel": "american",
+      "strategy": "dalembert",
+      "bet": "red",
+      "base": 1,
+      "seed": 2026101312,
+      "house_edge": 0.05263157894736842,
+      "elapsed_seconds": 0.5720167079998646,
+      "residual_covers_zero": true,
+      "return_covers_benchmark": true
+    },
+    {
+      "sessions": 20000,
+      "mean_profit": {
+        "estimate": -28.4771,
+        "se": 0.5516960143087044,
+        "low": -30.52317014115407,
+        "high": -26.431029858845932
+      },
+      "return_per_unit_staked": {
+        "estimate": -0.052921949643948425,
+        "se": 0.0011452121137437983,
+        "low": -0.057169187707024186,
+        "high": -0.048674711580872665
+      },
+      "staking_identity_residual": {
+        "estimate": -0.15624736842105413,
+        "se": 0.6158532784971197,
+        "low": -2.4402569892694523,
+        "high": 2.127762252427344
+      },
+      "mean_turnover": 538.0962,
+      "winning_session_fraction": 0.3178,
+      "ruin_fraction": 0.01595,
+      "limit_stop_fraction": 0.02125,
+      "bankroll_stop_fraction": 0.64865,
+      "mean_max_drawdown": 96.86545,
+      "profit_fifth_percentile": -98.0,
+      "lower_tail_mean_including_ties": -98.98825831702544,
+      "wheel": "american",
+      "strategy": "labouchere",
+      "bet": "red",
+      "base": 1,
+      "seed": 2026101313,
+      "house_edge": 0.05263157894736842,
+      "elapsed_seconds": 1.9293806740024593,
+      "residual_covers_zero": true,
+      "return_covers_benchmark": true
+    },
+    {
+      "sessions": 20000,
+      "mean_profit": {
+        "estimate": -22.1154,
+        "se": 0.7243167027456249,
+        "low": -24.801666965484596,
+        "high": -19.429133034515406
+      },
+      "return_per_unit_staked": {
+        "estimate": -0.05246302508927923,
+        "se": 0.0018359839677010957,
+        "low": -0.05927212263307404,
+        "high": -0.045653927545484425
+      },
+      "staking_identity_residual": {
+        "estimate": 0.07105263157894433,
+        "se": 0.7741105586577677,
+        "low": -2.7998843680410697,
+        "high": 2.941989631198958
+      },
+      "mean_turnover": 421.5426,
+      "winning_session_fraction": 0.3445,
+      "ruin_fraction": 0.0,
+      "limit_stop_fraction": 0.0,
+      "bankroll_stop_fraction": 0.534,
+      "mean_max_drawdown": 120.393,
+      "profit_fifth_percentile": -96.0,
+      "lower_tail_mean_including_ties": -96.0,
+      "wheel": "american",
+      "strategy": "flat",
+      "bet": "six_number_portfolio",
+      "base": 6,
+      "seed": 2026101314,
+      "house_edge": 0.05263157894736842,
+      "elapsed_seconds": 0.6699169560160954,
+      "residual_covers_zero": true,
+      "return_covers_benchmark": true
+    },
+    {
+      "sessions": 20000,
+      "mean_profit": {
+        "estimate": -9.9443,
+        "se": 0.4004740364220787,
+        "low": -11.429534525860038,
+        "high": -8.459065474139962
+      },
+      "return_per_unit_staked": {
+        "estimate": -0.04997198457267051,
+        "se": 0.0020153060641070145,
+        "low": -0.05744613239341004,
+        "high": -0.04249783675193099
+      },
+      "staking_identity_residual": {
+        "estimate": 0.5292526315789484,
+        "se": 0.40107123397128747,
+        "low": -0.958196715563309,
+        "high": 2.0167019787212057
+      },
+      "mean_turnover": 198.9975,
+      "winning_session_fraction": 0.39625,
+      "ruin_fraction": 0.0559,
+      "limit_stop_fraction": 0.0,
+      "bankroll_stop_fraction": 0.0,
+      "mean_max_drawdown": 60.9802,
+      "profit_fifth_percentile": -100.0,
+      "lower_tail_mean_including_ties": -100.0,
+      "wheel": "american",
+      "strategy": "flat",
+      "bet": "red_and_zero",
+      "base": 2,
+      "seed": 2026101315,
+      "house_edge": 0.05263157894736842,
+      "elapsed_seconds": 0.8057173769921064,
+      "residual_covers_zero": true,
+      "return_covers_benchmark": true
+    }
+  ]
+}

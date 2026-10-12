@@ -1,0 +1,33 @@
+# Adversarial review — 12 October 2026
+
+Reviewer scope: independently inspect simulation, statistical evaluation, experiment drivers and outputs, and Phase 2 session/strategy code. This reviewer authored the rules/theory modules and mathematical note, so this report **does not count as independent review of those derivations**. The separate validation author reviews that work.
+
+## Phase 1 findings
+
+Inspected `simulation.py`, `statistics.py`, `evaluation.py`, `experiments/baseline.py`, the validation plan, simulator tests and saved baseline results. Independently replayed all eight saved baseline cases without replacing the evidence: estimates, estimated standard errors and interval endpoints matched exactly. Recomputed planned sample sizes from the saved exact variances and verified all eight. All eight estimates also fall inside intervals using the plan's exact-variance standard errors.
+
+The vectorised prison simulator resolves every initial zero before reporting completed-wager profit. Repeated zeros retain the stake; a matching release returns net zero. Batching future draws across wagers changes deterministic stream assignment relative to sequential simulation, but not the independent completed-wager law. The scripted repeated-zero test exercises this distinction explicitly.
+
+Found a documentation/registration discrepancy and reported it before Phase 2: the validation plan specifies exact-variance intervals and mentions seed 20261012, while the implemented baseline uses estimated variance and seeds 2026101200 through 2026101207. Both interval methods cover the exact means on the retained draws. This does not invalidate the reconciliation, but a claim of exact adherence to the written registration would be inaccurate. The 0.03 half-width is a planning target; estimated-variance realised intervals can be slightly wider. Preserve this deviation and the original evidence.
+
+Normal intervals are asymptotic, as labelled. Sample sizes give thousands of straight-up wins, making a normal approximation reasonable here; they do not guarantee exact finite-sample family coverage. Bonferroni uses the fixed eight-case family and requires no independence between comparisons. Several intervals contain zero: the experiment corroborates agreement with an independently derived negative expectation, but does not independently establish a negative mean at this precision. No external spins or out-of-sample real-world validation are present.
+
+## Phase 2 review
+
+Inspected `strategies.py` and the session implementation. Stakes are requested before outcomes; progression state updates only from completed wagers. Labouchere cancels the first/last entries on wins and appends their sum on losses; completed lists restart the registered [1,2,3] cycle. Reverse Martingale resets after three wins. These explicit variants must accompany strategy names.
+
+Limits are checked before placement for both total and component stakes. Unfundable stakes stop the session without clipping or debt. Settled zero funds set the ruin flag immediately; positive funds insufficient for the next requested wager set a separate affordability flag. Stops at the completed-wager horizon need not trigger a prospective next-wager flag. Prison wagers resolve fully, increase physical spin counts and add initial turnover only once. Drawdown measures settled wealth, as documented, and excludes temporary stake reservation.
+
+Independently enumerated all 37 European outcomes through the session engine for both fixed portfolios. Each matches the scalar sum of component profits on the **same** outcome. Sector per-unit variance is 4.8911614317 and mixed red/zero variance is 8.2965668371; both unit means are -1/37. Drawing independent outcomes per component would incorrectly change these variances.
+
+Found and reported a generic-API defect: Fibonacci indexes above the precomputed length silently repeated the final term. Counterexample: after 80 and 81 consecutive losses, requested stakes both equalled 2.3416728348467684e16. The coordinator fixed this with dynamic sequence extension. Independently rechecked the counterexample: successive requests now increase to 3.78890623731439e16 and 6.130579072161158e16. The registered table-maximum-64 experiment stops much earlier and was unaffected. Component weights now enforce an absolute sum tolerance and normalise accepted weights; evaluation reports affordability stops separately.
+
+Session uncertainty uses independent sessions as clusters. The turnover-ratio delta method retains profit/turnover covariance; treating within-session adaptive wagers as independent observations would be wrong. The residual `profit + h*turnover` tests the common-edge staking identity directly. A caller supplying an inappropriate common edge for mixed-edge bets would invalidate that residual; the registered sector and mixed portfolios use equal-edge standard bets.
+
+Independently implemented the six European progressions without calling `Progression`, `settle` or the production evaluator. The alternate implementation reproduced profit and turnover arrays exactly for all 20,000 sessions for each progression, using registered seeds and constraints. This exercises predictable stake timing, cancellation, horizon and stop conditions beyond the production tests.
+
+Replayed all 16 saved Phase 2 cases. Every summary metric matched exactly. Independently recomputed the 48-comparison critical value, profit/residual interval endpoints and delta-method turnover-ratio standard errors from the session arrays. All 16 residual intervals include zero; all 16 ratio intervals include their negative theoretical benchmark. The comparisons corroborate the staking identity and exhibit different risk profiles; they establish no positive edge and cannot validate a real wheel.
+
+The registered residual precision bound is conservative: conditional zero-mean residual increments for even-money bets give session variance at most 100*64²; 20,000 independent sessions meet the planned approximate half-width of 20. Flat portfolio session variances are smaller despite their larger per-unit variances. The bound is a design calculation, not an exact finite-sample coverage guarantee.
+
+Final independently run integrated tests: `pytest -q`, **141 passed in 2.41s**. The independent replay and counterexample checks were executed without editing implementation or replacing experiment evidence. No unresolved material defect was identified in the registered Phase 1/2 cases. The retained Phase 1 registration discrepancy remains a documented limitation; this review does not independently certify the reviewer's own mathematical derivations.

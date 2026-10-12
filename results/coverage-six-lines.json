@@ -1,0 +1,1350 @@
+{
+  "status": "exhaustively_searched",
+  "wheel": "european",
+  "pockets": 37,
+  "catalogue_size": 11,
+  "max_bets": 10,
+  "max_combinations": 1000000,
+  "combinations_required": 2046,
+  "combinations_searched": 2046,
+  "scope": "Distinct selected catalogue bets, exactly one chip each; no unequal stakes or repeated bets.",
+  "metric": "Strictly positive net profit after subtracting all stakes",
+  "method": "Exhaustive integer settlement on all 37 equally likely pockets; no Monte Carlo uncertainty",
+  "rng": null,
+  "results": [
+    {
+      "number_of_bets": 1,
+      "combinations_searched": 11,
+      "maximum_profitable_count": 6,
+      "maximum_profitable_probability": "6/37",
+      "representative": {
+        "bets": [
+          "six_line_1_2_3_4_5_6"
+        ],
+        "stake_per_bet": 1,
+        "total_stake": 1,
+        "covered_count": 6,
+        "profitable_count": 6,
+        "break_even_count": 0,
+        "loss_count": 31,
+        "profitable_probability": "6/37",
+        "covered_probability": "6/37",
+        "break_even_probability": "0/37",
+        "loss_probability": "31/37",
+        "expected_profit": "-1/37",
+        "return_per_unit_staked": "-1/37",
+        "worst_profit": -1,
+        "best_profit": 5,
+        "profits_by_pocket": [
+          -1,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          -1,
+          -1,
+          -1,
+          -1,
+          -1,
+          -1,
+          -1,
+          -1,
+          -1,
+          -1,
+          -1,
+          -1,
+          -1,
+          -1,
+          -1,
+          -1,
+          -1,
+          -1,
+          -1,
+          -1,
+          -1,
+          -1,
+          -1,
+          -1,
+          -1,
+          -1,
+          -1,
+          -1,
+          -1,
+          -1
+        ],
+        "distribution": [
+          {
+            "net_profit": -1,
+            "pocket_count": 31,
+            "probability": "31/37"
+          },
+          {
+            "net_profit": 5,
+            "pocket_count": 6,
+            "probability": "6/37"
+          }
+        ]
+      },
+      "thresholds": {
+        "70": {
+          "required_profitable_count": 26,
+          "qualifying_combinations": 0,
+          "representative": null
+        },
+        "75": {
+          "required_profitable_count": 28,
+          "qualifying_combinations": 0,
+          "representative": null
+        },
+        "80": {
+          "required_profitable_count": 30,
+          "qualifying_combinations": 0,
+          "representative": null
+        }
+      }
+    },
+    {
+      "number_of_bets": 2,
+      "combinations_searched": 55,
+      "maximum_profitable_count": 12,
+      "maximum_profitable_probability": "12/37",
+      "representative": {
+        "bets": [
+          "six_line_1_2_3_4_5_6",
+          "six_line_7_8_9_10_11_12"
+        ],
+        "stake_per_bet": 1,
+        "total_stake": 2,
+        "covered_count": 12,
+        "profitable_count": 12,
+        "break_even_count": 0,
+        "loss_count": 25,
+        "profitable_probability": "12/37",
+        "covered_probability": "12/37",
+        "break_even_probability": "0/37",
+        "loss_probability": "25/37",
+        "expected_profit": "-2/37",
+        "return_per_unit_staked": "-1/37",
+        "worst_profit": -2,
+        "best_profit": 4,
+        "profits_by_pocket": [
+          -2,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          -2,
+          -2,
+          -2,
+          -2,
+          -2,
+          -2,
+          -2,
+          -2,
+          -2,
+          -2,
+          -2,
+          -2,
+          -2,
+          -2,
+          -2,
+          -2,
+          -2,
+          -2,
+          -2,
+          -2,
+          -2,
+          -2,
+          -2,
+          -2
+        ],
+        "distribution": [
+          {
+            "net_profit": -2,
+            "pocket_count": 25,
+            "probability": "25/37"
+          },
+          {
+            "net_profit": 4,
+            "pocket_count": 12,
+            "probability": "12/37"
+          }
+        ]
+      },
+      "thresholds": {
+        "70": {
+          "required_profitable_count": 26,
+          "qualifying_combinations": 0,
+          "representative": null
+        },
+        "75": {
+          "required_profitable_count": 28,
+          "qualifying_combinations": 0,
+          "representative": null
+        },
+        "80": {
+          "required_profitable_count": 30,
+          "qualifying_combinations": 0,
+          "representative": null
+        }
+      }
+    },
+    {
+      "number_of_bets": 3,
+      "combinations_searched": 165,
+      "maximum_profitable_count": 18,
+      "maximum_profitable_probability": "18/37",
+      "representative": {
+        "bets": [
+          "six_line_1_2_3_4_5_6",
+          "six_line_7_8_9_10_11_12",
+          "six_line_13_14_15_16_17_18"
+        ],
+        "stake_per_bet": 1,
+        "total_stake": 3,
+        "covered_count": 18,
+        "profitable_count": 18,
+        "break_even_count": 0,
+        "loss_count": 19,
+        "profitable_probability": "18/37",
+        "covered_probability": "18/37",
+        "break_even_probability": "0/37",
+        "loss_probability": "19/37",
+        "expected_profit": "-3/37",
+        "return_per_unit_staked": "-1/37",
+        "worst_profit": -3,
+        "best_profit": 3,
+        "profits_by_pocket": [
+          -3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          -3,
+          -3,
+          -3,
+          -3,
+          -3,
+          -3,
+          -3,
+          -3,
+          -3,
+          -3,
+          -3,
+          -3,
+          -3,
+          -3,
+          -3,
+          -3,
+          -3,
+          -3
+        ],
+        "distribution": [
+          {
+            "net_profit": -3,
+            "pocket_count": 19,
+            "probability": "19/37"
+          },
+          {
+            "net_profit": 3,
+            "pocket_count": 18,
+            "probability": "18/37"
+          }
+        ]
+      },
+      "thresholds": {
+        "70": {
+          "required_profitable_count": 26,
+          "qualifying_combinations": 0,
+          "representative": null
+        },
+        "75": {
+          "required_profitable_count": 28,
+          "qualifying_combinations": 0,
+          "representative": null
+        },
+        "80": {
+          "required_profitable_count": 30,
+          "qualifying_combinations": 0,
+          "representative": null
+        }
+      }
+    },
+    {
+      "number_of_bets": 4,
+      "combinations_searched": 330,
+      "maximum_profitable_count": 24,
+      "maximum_profitable_probability": "24/37",
+      "representative": {
+        "bets": [
+          "six_line_1_2_3_4_5_6",
+          "six_line_7_8_9_10_11_12",
+          "six_line_13_14_15_16_17_18",
+          "six_line_19_20_21_22_23_24"
+        ],
+        "stake_per_bet": 1,
+        "total_stake": 4,
+        "covered_count": 24,
+        "profitable_count": 24,
+        "break_even_count": 0,
+        "loss_count": 13,
+        "profitable_probability": "24/37",
+        "covered_probability": "24/37",
+        "break_even_probability": "0/37",
+        "loss_probability": "13/37",
+        "expected_profit": "-4/37",
+        "return_per_unit_staked": "-1/37",
+        "worst_profit": -4,
+        "best_profit": 2,
+        "profits_by_pocket": [
+          -4,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          -4,
+          -4,
+          -4,
+          -4,
+          -4,
+          -4,
+          -4,
+          -4,
+          -4,
+          -4,
+          -4,
+          -4
+        ],
+        "distribution": [
+          {
+            "net_profit": -4,
+            "pocket_count": 13,
+            "probability": "13/37"
+          },
+          {
+            "net_profit": 2,
+            "pocket_count": 24,
+            "probability": "24/37"
+          }
+        ]
+      },
+      "thresholds": {
+        "70": {
+          "required_profitable_count": 26,
+          "qualifying_combinations": 0,
+          "representative": null
+        },
+        "75": {
+          "required_profitable_count": 28,
+          "qualifying_combinations": 0,
+          "representative": null
+        },
+        "80": {
+          "required_profitable_count": 30,
+          "qualifying_combinations": 0,
+          "representative": null
+        }
+      }
+    },
+    {
+      "number_of_bets": 5,
+      "combinations_searched": 462,
+      "maximum_profitable_count": 30,
+      "maximum_profitable_probability": "30/37",
+      "representative": {
+        "bets": [
+          "six_line_1_2_3_4_5_6",
+          "six_line_7_8_9_10_11_12",
+          "six_line_13_14_15_16_17_18",
+          "six_line_19_20_21_22_23_24",
+          "six_line_25_26_27_28_29_30"
+        ],
+        "stake_per_bet": 1,
+        "total_stake": 5,
+        "covered_count": 30,
+        "profitable_count": 30,
+        "break_even_count": 0,
+        "loss_count": 7,
+        "profitable_probability": "30/37",
+        "covered_probability": "30/37",
+        "break_even_probability": "0/37",
+        "loss_probability": "7/37",
+        "expected_profit": "-5/37",
+        "return_per_unit_staked": "-1/37",
+        "worst_profit": -5,
+        "best_profit": 1,
+        "profits_by_pocket": [
+          -5,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          -5,
+          -5,
+          -5,
+          -5,
+          -5,
+          -5
+        ],
+        "distribution": [
+          {
+            "net_profit": -5,
+            "pocket_count": 7,
+            "probability": "7/37"
+          },
+          {
+            "net_profit": 1,
+            "pocket_count": 30,
+            "probability": "30/37"
+          }
+        ]
+      },
+      "thresholds": {
+        "70": {
+          "required_profitable_count": 26,
+          "qualifying_combinations": 161,
+          "representative": {
+            "bets": [
+              "six_line_1_2_3_4_5_6",
+              "six_line_7_8_9_10_11_12",
+              "six_line_13_14_15_16_17_18",
+              "six_line_19_20_21_22_23_24",
+              "six_line_25_26_27_28_29_30"
+            ],
+            "stake_per_bet": 1,
+            "total_stake": 5,
+            "covered_count": 30,
+            "profitable_count": 30,
+            "break_even_count": 0,
+            "loss_count": 7,
+            "profitable_probability": "30/37",
+            "covered_probability": "30/37",
+            "break_even_probability": "0/37",
+            "loss_probability": "7/37",
+            "expected_profit": "-5/37",
+            "return_per_unit_staked": "-1/37",
+            "worst_profit": -5,
+            "best_profit": 1,
+            "profits_by_pocket": [
+              -5,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              -5,
+              -5,
+              -5,
+              -5,
+              -5,
+              -5
+            ],
+            "distribution": [
+              {
+                "net_profit": -5,
+                "pocket_count": 7,
+                "probability": "7/37"
+              },
+              {
+                "net_profit": 1,
+                "pocket_count": 30,
+                "probability": "30/37"
+              }
+            ]
+          }
+        },
+        "75": {
+          "required_profitable_count": 28,
+          "qualifying_combinations": 21,
+          "representative": {
+            "bets": [
+              "six_line_1_2_3_4_5_6",
+              "six_line_7_8_9_10_11_12",
+              "six_line_13_14_15_16_17_18",
+              "six_line_19_20_21_22_23_24",
+              "six_line_25_26_27_28_29_30"
+            ],
+            "stake_per_bet": 1,
+            "total_stake": 5,
+            "covered_count": 30,
+            "profitable_count": 30,
+            "break_even_count": 0,
+            "loss_count": 7,
+            "profitable_probability": "30/37",
+            "covered_probability": "30/37",
+            "break_even_probability": "0/37",
+            "loss_probability": "7/37",
+            "expected_profit": "-5/37",
+            "return_per_unit_staked": "-1/37",
+            "worst_profit": -5,
+            "best_profit": 1,
+            "profits_by_pocket": [
+              -5,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              -5,
+              -5,
+              -5,
+              -5,
+              -5,
+              -5
+            ],
+            "distribution": [
+              {
+                "net_profit": -5,
+                "pocket_count": 7,
+                "probability": "7/37"
+              },
+              {
+                "net_profit": 1,
+                "pocket_count": 30,
+                "probability": "30/37"
+              }
+            ]
+          }
+        },
+        "80": {
+          "required_profitable_count": 30,
+          "qualifying_combinations": 21,
+          "representative": {
+            "bets": [
+              "six_line_1_2_3_4_5_6",
+              "six_line_7_8_9_10_11_12",
+              "six_line_13_14_15_16_17_18",
+              "six_line_19_20_21_22_23_24",
+              "six_line_25_26_27_28_29_30"
+            ],
+            "stake_per_bet": 1,
+            "total_stake": 5,
+            "covered_count": 30,
+            "profitable_count": 30,
+            "break_even_count": 0,
+            "loss_count": 7,
+            "profitable_probability": "30/37",
+            "covered_probability": "30/37",
+            "break_even_probability": "0/37",
+            "loss_probability": "7/37",
+            "expected_profit": "-5/37",
+            "return_per_unit_staked": "-1/37",
+            "worst_profit": -5,
+            "best_profit": 1,
+            "profits_by_pocket": [
+              -5,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              -5,
+              -5,
+              -5,
+              -5,
+              -5,
+              -5
+            ],
+            "distribution": [
+              {
+                "net_profit": -5,
+                "pocket_count": 7,
+                "probability": "7/37"
+              },
+              {
+                "net_profit": 1,
+                "pocket_count": 30,
+                "probability": "30/37"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "number_of_bets": 6,
+      "combinations_searched": 462,
+      "maximum_profitable_count": 15,
+      "maximum_profitable_probability": "15/37",
+      "representative": {
+        "bets": [
+          "six_line_1_2_3_4_5_6",
+          "six_line_4_5_6_7_8_9",
+          "six_line_7_8_9_10_11_12",
+          "six_line_10_11_12_13_14_15",
+          "six_line_13_14_15_16_17_18",
+          "six_line_16_17_18_19_20_21"
+        ],
+        "stake_per_bet": 1,
+        "total_stake": 6,
+        "covered_count": 21,
+        "profitable_count": 15,
+        "break_even_count": 6,
+        "loss_count": 16,
+        "profitable_probability": "15/37",
+        "covered_probability": "21/37",
+        "break_even_probability": "6/37",
+        "loss_probability": "16/37",
+        "expected_profit": "-6/37",
+        "return_per_unit_staked": "-1/37",
+        "worst_profit": -6,
+        "best_profit": 6,
+        "profits_by_pocket": [
+          -6,
+          0,
+          0,
+          0,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          0,
+          0,
+          0,
+          -6,
+          -6,
+          -6,
+          -6,
+          -6,
+          -6,
+          -6,
+          -6,
+          -6,
+          -6,
+          -6,
+          -6,
+          -6,
+          -6,
+          -6
+        ],
+        "distribution": [
+          {
+            "net_profit": -6,
+            "pocket_count": 16,
+            "probability": "16/37"
+          },
+          {
+            "net_profit": 0,
+            "pocket_count": 6,
+            "probability": "6/37"
+          },
+          {
+            "net_profit": 6,
+            "pocket_count": 15,
+            "probability": "15/37"
+          }
+        ]
+      },
+      "thresholds": {
+        "70": {
+          "required_profitable_count": 26,
+          "qualifying_combinations": 0,
+          "representative": null
+        },
+        "75": {
+          "required_profitable_count": 28,
+          "qualifying_combinations": 0,
+          "representative": null
+        },
+        "80": {
+          "required_profitable_count": 30,
+          "qualifying_combinations": 0,
+          "representative": null
+        }
+      }
+    },
+    {
+      "number_of_bets": 7,
+      "combinations_searched": 330,
+      "maximum_profitable_count": 18,
+      "maximum_profitable_probability": "18/37",
+      "representative": {
+        "bets": [
+          "six_line_1_2_3_4_5_6",
+          "six_line_4_5_6_7_8_9",
+          "six_line_7_8_9_10_11_12",
+          "six_line_10_11_12_13_14_15",
+          "six_line_13_14_15_16_17_18",
+          "six_line_16_17_18_19_20_21",
+          "six_line_19_20_21_22_23_24"
+        ],
+        "stake_per_bet": 1,
+        "total_stake": 7,
+        "covered_count": 24,
+        "profitable_count": 18,
+        "break_even_count": 0,
+        "loss_count": 19,
+        "profitable_probability": "18/37",
+        "covered_probability": "24/37",
+        "break_even_probability": "0/37",
+        "loss_probability": "19/37",
+        "expected_profit": "-7/37",
+        "return_per_unit_staked": "-1/37",
+        "worst_profit": -7,
+        "best_profit": 5,
+        "profits_by_pocket": [
+          -7,
+          -1,
+          -1,
+          -1,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          -1,
+          -1,
+          -1,
+          -7,
+          -7,
+          -7,
+          -7,
+          -7,
+          -7,
+          -7,
+          -7,
+          -7,
+          -7,
+          -7,
+          -7
+        ],
+        "distribution": [
+          {
+            "net_profit": -7,
+            "pocket_count": 13,
+            "probability": "13/37"
+          },
+          {
+            "net_profit": -1,
+            "pocket_count": 6,
+            "probability": "6/37"
+          },
+          {
+            "net_profit": 5,
+            "pocket_count": 18,
+            "probability": "18/37"
+          }
+        ]
+      },
+      "thresholds": {
+        "70": {
+          "required_profitable_count": 26,
+          "qualifying_combinations": 0,
+          "representative": null
+        },
+        "75": {
+          "required_profitable_count": 28,
+          "qualifying_combinations": 0,
+          "representative": null
+        },
+        "80": {
+          "required_profitable_count": 30,
+          "qualifying_combinations": 0,
+          "representative": null
+        }
+      }
+    },
+    {
+      "number_of_bets": 8,
+      "combinations_searched": 165,
+      "maximum_profitable_count": 21,
+      "maximum_profitable_probability": "21/37",
+      "representative": {
+        "bets": [
+          "six_line_1_2_3_4_5_6",
+          "six_line_4_5_6_7_8_9",
+          "six_line_7_8_9_10_11_12",
+          "six_line_10_11_12_13_14_15",
+          "six_line_13_14_15_16_17_18",
+          "six_line_16_17_18_19_20_21",
+          "six_line_19_20_21_22_23_24",
+          "six_line_22_23_24_25_26_27"
+        ],
+        "stake_per_bet": 1,
+        "total_stake": 8,
+        "covered_count": 27,
+        "profitable_count": 21,
+        "break_even_count": 0,
+        "loss_count": 16,
+        "profitable_probability": "21/37",
+        "covered_probability": "27/37",
+        "break_even_probability": "0/37",
+        "loss_probability": "16/37",
+        "expected_profit": "-8/37",
+        "return_per_unit_staked": "-1/37",
+        "worst_profit": -8,
+        "best_profit": 4,
+        "profits_by_pocket": [
+          -8,
+          -2,
+          -2,
+          -2,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          -2,
+          -2,
+          -2,
+          -8,
+          -8,
+          -8,
+          -8,
+          -8,
+          -8,
+          -8,
+          -8,
+          -8
+        ],
+        "distribution": [
+          {
+            "net_profit": -8,
+            "pocket_count": 10,
+            "probability": "10/37"
+          },
+          {
+            "net_profit": -2,
+            "pocket_count": 6,
+            "probability": "6/37"
+          },
+          {
+            "net_profit": 4,
+            "pocket_count": 21,
+            "probability": "21/37"
+          }
+        ]
+      },
+      "thresholds": {
+        "70": {
+          "required_profitable_count": 26,
+          "qualifying_combinations": 0,
+          "representative": null
+        },
+        "75": {
+          "required_profitable_count": 28,
+          "qualifying_combinations": 0,
+          "representative": null
+        },
+        "80": {
+          "required_profitable_count": 30,
+          "qualifying_combinations": 0,
+          "representative": null
+        }
+      }
+    },
+    {
+      "number_of_bets": 9,
+      "combinations_searched": 55,
+      "maximum_profitable_count": 24,
+      "maximum_profitable_probability": "24/37",
+      "representative": {
+        "bets": [
+          "six_line_1_2_3_4_5_6",
+          "six_line_4_5_6_7_8_9",
+          "six_line_7_8_9_10_11_12",
+          "six_line_10_11_12_13_14_15",
+          "six_line_13_14_15_16_17_18",
+          "six_line_16_17_18_19_20_21",
+          "six_line_19_20_21_22_23_24",
+          "six_line_22_23_24_25_26_27",
+          "six_line_25_26_27_28_29_30"
+        ],
+        "stake_per_bet": 1,
+        "total_stake": 9,
+        "covered_count": 30,
+        "profitable_count": 24,
+        "break_even_count": 0,
+        "loss_count": 13,
+        "profitable_probability": "24/37",
+        "covered_probability": "30/37",
+        "break_even_probability": "0/37",
+        "loss_probability": "13/37",
+        "expected_profit": "-9/37",
+        "return_per_unit_staked": "-1/37",
+        "worst_profit": -9,
+        "best_profit": 3,
+        "profits_by_pocket": [
+          -9,
+          -3,
+          -3,
+          -3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          -3,
+          -3,
+          -3,
+          -9,
+          -9,
+          -9,
+          -9,
+          -9,
+          -9
+        ],
+        "distribution": [
+          {
+            "net_profit": -9,
+            "pocket_count": 7,
+            "probability": "7/37"
+          },
+          {
+            "net_profit": -3,
+            "pocket_count": 6,
+            "probability": "6/37"
+          },
+          {
+            "net_profit": 3,
+            "pocket_count": 24,
+            "probability": "24/37"
+          }
+        ]
+      },
+      "thresholds": {
+        "70": {
+          "required_profitable_count": 26,
+          "qualifying_combinations": 0,
+          "representative": null
+        },
+        "75": {
+          "required_profitable_count": 28,
+          "qualifying_combinations": 0,
+          "representative": null
+        },
+        "80": {
+          "required_profitable_count": 30,
+          "qualifying_combinations": 0,
+          "representative": null
+        }
+      }
+    },
+    {
+      "number_of_bets": 10,
+      "combinations_searched": 11,
+      "maximum_profitable_count": 27,
+      "maximum_profitable_probability": "27/37",
+      "representative": {
+        "bets": [
+          "six_line_1_2_3_4_5_6",
+          "six_line_4_5_6_7_8_9",
+          "six_line_7_8_9_10_11_12",
+          "six_line_10_11_12_13_14_15",
+          "six_line_13_14_15_16_17_18",
+          "six_line_16_17_18_19_20_21",
+          "six_line_19_20_21_22_23_24",
+          "six_line_22_23_24_25_26_27",
+          "six_line_25_26_27_28_29_30",
+          "six_line_28_29_30_31_32_33"
+        ],
+        "stake_per_bet": 1,
+        "total_stake": 10,
+        "covered_count": 33,
+        "profitable_count": 27,
+        "break_even_count": 0,
+        "loss_count": 10,
+        "profitable_probability": "27/37",
+        "covered_probability": "33/37",
+        "break_even_probability": "0/37",
+        "loss_probability": "10/37",
+        "expected_profit": "-10/37",
+        "return_per_unit_staked": "-1/37",
+        "worst_profit": -10,
+        "best_profit": 2,
+        "profits_by_pocket": [
+          -10,
+          -4,
+          -4,
+          -4,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          -4,
+          -4,
+          -4,
+          -10,
+          -10,
+          -10
+        ],
+        "distribution": [
+          {
+            "net_profit": -10,
+            "pocket_count": 4,
+            "probability": "4/37"
+          },
+          {
+            "net_profit": -4,
+            "pocket_count": 6,
+            "probability": "6/37"
+          },
+          {
+            "net_profit": 2,
+            "pocket_count": 27,
+            "probability": "27/37"
+          }
+        ]
+      },
+      "thresholds": {
+        "70": {
+          "required_profitable_count": 26,
+          "qualifying_combinations": 2,
+          "representative": {
+            "bets": [
+              "six_line_1_2_3_4_5_6",
+              "six_line_4_5_6_7_8_9",
+              "six_line_7_8_9_10_11_12",
+              "six_line_10_11_12_13_14_15",
+              "six_line_13_14_15_16_17_18",
+              "six_line_16_17_18_19_20_21",
+              "six_line_19_20_21_22_23_24",
+              "six_line_22_23_24_25_26_27",
+              "six_line_25_26_27_28_29_30",
+              "six_line_28_29_30_31_32_33"
+            ],
+            "stake_per_bet": 1,
+            "total_stake": 10,
+            "covered_count": 33,
+            "profitable_count": 27,
+            "break_even_count": 0,
+            "loss_count": 10,
+            "profitable_probability": "27/37",
+            "covered_probability": "33/37",
+            "break_even_probability": "0/37",
+            "loss_probability": "10/37",
+            "expected_profit": "-10/37",
+            "return_per_unit_staked": "-1/37",
+            "worst_profit": -10,
+            "best_profit": 2,
+            "profits_by_pocket": [
+              -10,
+              -4,
+              -4,
+              -4,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              -4,
+              -4,
+              -4,
+              -10,
+              -10,
+              -10
+            ],
+            "distribution": [
+              {
+                "net_profit": -10,
+                "pocket_count": 4,
+                "probability": "4/37"
+              },
+              {
+                "net_profit": -4,
+                "pocket_count": 6,
+                "probability": "6/37"
+              },
+              {
+                "net_profit": 2,
+                "pocket_count": 27,
+                "probability": "27/37"
+              }
+            ]
+          }
+        },
+        "75": {
+          "required_profitable_count": 28,
+          "qualifying_combinations": 0,
+          "representative": null
+        },
+        "80": {
+          "required_profitable_count": 30,
+          "qualifying_combinations": 0,
+          "representative": null
+        }
+      }
+    }
+  ],
+  "experiment": "C1-001",
+  "families": [
+    "six_line"
+  ],
+  "metadata": {
+    "python": "3.14.7",
+    "numpy": "2.4.6",
+    "scipy": "1.17.1",
+    "sympy": "1.14.0",
+    "code_sha256": {
+      "src/roulette/__init__.py": "d5429a85fd8df84a8216915c9eaa2a310a3d119d23054bbef8410e732ae0b344",
+      "src/roulette/coverage.py": "248d44a449b653e33e59fe820d3e5ff397ed9a1d32eedc01c825bd629382b401",
+      "src/roulette/coverage_search.py": "e12253b6c559fc3cfa1ef3d5aba5255ba4e78724271e185f93ae032ba6cd6736",
+      "src/roulette/evaluation.py": "6be34994d5e25db4d82cdfa38b18602e2b31d3af2f9f07d5eee1eed11d7d6226",
+      "src/roulette/rules.py": "447f07f03b89b0a25d4c2d850eb032b5522231e41891d34e9a6bfb88126ed766",
+      "src/roulette/simulation.py": "b0f56c426bf159a8fb3ac052dea3a6816ef47d1e3007065c2f665c19e054d294",
+      "src/roulette/statistics.py": "6782a989b55671ac2631b0ab7af5a69400566cc06cf8567c9a1bc599564952c9",
+      "src/roulette/strategies.py": "97ffaff8a99770e0665b63c230c3261814cbab23ce0055da8042a1ae79564230",
+      "src/roulette/theory.py": "a8a80ea97ed20755e9fa15892c1324ef6dfc47bb61b0adcc595b672f486911fe",
+      "experiments/baseline.py": "8fbaf01436d54d5e0b6de121bc3918a5a2fba70c969fcbd141e2a7036f6c1c9c",
+      "experiments/coverage.py": "d0cff6a60c1b15e552d67a0d1eaf192cdd98666cb9c80cd3359d80772e82d016",
+      "experiments/strategies.py": "357cd6e9a8730cc11deb4b5e8dc15322f1c31495a11bb2a48384ba92a0d39445",
+      "experiments/verify.py": "98c3c8821a47f14c502f85d51fd3a71895d4bdb1053a6b3e65da13d9bcb9b885",
+      "tests/test_coverage.py": "ff5daa7b7767a9c5430b9197ef1f55bd93f768259a2b14e28043b433f776d630",
+      "tests/test_coverage_search.py": "3a94f2bc6b6cc1aa93f74e182c8e32b33bd0f79ac709ecce18e3047d83c1fd4c",
+      "tests/test_rules.py": "3b682476a69831e08e79285d9bff8ee54f5994e2bf5b9f207812354d9ecbb7b1",
+      "tests/test_simulation.py": "360c1319f3fa23965cfd2dc9db7dff0a9fd3d5ddb530d976f789e0d9cd4f3814",
+      "tests/test_statistics.py": "8d569430095bf8785d8ec539ba6e00ed133107db0d0c4b01f7f08d2c4f5fa614",
+      "tests/test_verify.py": "871c9294b44a439cafbbe84e85ec194ed2a991e6a4f527b6ef663d4bcc6796c7"
+    },
+    "rng": null
+  }
+}

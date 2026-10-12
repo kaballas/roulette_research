@@ -1,0 +1,54 @@
+{
+  "source": "results/coverage-optimisation-20chips.json",
+  "source_sha256": "daea96a8515f167b00105f9b40e3d115756deabb2b4638e078b56e924e0e7c43",
+  "audit": "Independent scalar integer settlement; all source manifest hashes matched; cross-target witness reuse, no additional optimisation.",
+  "expected_profit": "-20/37",
+  "return_per_unit_staked": "-1/37",
+  "results": [
+    {
+      "target_percentage": 70,
+      "required_profitable_count": 26,
+      "feasibility": "exact_witness",
+      "optimality": "not_established",
+      "analytical_minimum_worst_loss": 5,
+      "best_retained_worst_loss": 15,
+      "witness_source_target_percentage": 75
+    },
+    {
+      "target_percentage": 75,
+      "required_profitable_count": 28,
+      "feasibility": "exact_witness",
+      "optimality": "not_established",
+      "analytical_minimum_worst_loss": 6,
+      "best_retained_worst_loss": 15,
+      "witness_source_target_percentage": 75
+    },
+    {
+      "target_percentage": 80,
+      "required_profitable_count": 30,
+      "feasibility": "exact_witness",
+      "optimality": "not_established",
+      "analytical_minimum_worst_loss": 8,
+      "best_retained_worst_loss": 18,
+      "witness_source_target_percentage": 70
+    },
+    {
+      "target_percentage": 85,
+      "required_profitable_count": 32,
+      "feasibility": "not_established",
+      "optimality": "not_established",
+      "analytical_minimum_worst_loss": 11,
+      "best_retained_worst_loss": null,
+      "witness_source_target_percentage": null
+    },
+    {
+      "target_percentage": 90,
+      "required_profitable_count": 34,
+      "feasibility": "not_established",
+      "optimality": "not_established",
+      "analytical_minimum_worst_loss": 18,
+      "best_retained_worst_loss": null,
+      "witness_source_target_percentage": null
+    }
+  ]
+}

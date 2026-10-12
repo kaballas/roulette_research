@@ -1,0 +1,50 @@
+{
+  "date": "2026-10-12",
+  "metadata": {
+    "python": "3.14.7",
+    "numpy": "2.4.6",
+    "scipy": "1.17.1",
+    "sympy": "1.14.0",
+    "code_sha256": {
+      "src/roulette/__init__.py": "d5429a85fd8df84a8216915c9eaa2a310a3d119d23054bbef8410e732ae0b344",
+      "src/roulette/evaluation.py": "6be34994d5e25db4d82cdfa38b18602e2b31d3af2f9f07d5eee1eed11d7d6226",
+      "src/roulette/rules.py": "447f07f03b89b0a25d4c2d850eb032b5522231e41891d34e9a6bfb88126ed766",
+      "src/roulette/simulation.py": "b0f56c426bf159a8fb3ac052dea3a6816ef47d1e3007065c2f665c19e054d294",
+      "src/roulette/statistics.py": "6782a989b55671ac2631b0ab7af5a69400566cc06cf8567c9a1bc599564952c9",
+      "src/roulette/strategies.py": "97ffaff8a99770e0665b63c230c3261814cbab23ce0055da8042a1ae79564230",
+      "src/roulette/theory.py": "a8a80ea97ed20755e9fa15892c1324ef6dfc47bb61b0adcc595b672f486911fe",
+      "experiments/baseline.py": "8fbaf01436d54d5e0b6de121bc3918a5a2fba70c969fcbd141e2a7036f6c1c9c",
+      "experiments/strategies.py": "357cd6e9a8730cc11deb4b5e8dc15322f1c31495a11bb2a48384ba92a0d39445",
+      "experiments/verify.py": "98c3c8821a47f14c502f85d51fd3a71895d4bdb1053a6b3e65da13d9bcb9b885",
+      "tests/test_rules.py": "3b682476a69831e08e79285d9bff8ee54f5994e2bf5b9f207812354d9ecbb7b1",
+      "tests/test_simulation.py": "360c1319f3fa23965cfd2dc9db7dff0a9fd3d5ddb530d976f789e0d9cd4f3814",
+      "tests/test_statistics.py": "8d569430095bf8785d8ec539ba6e00ed133107db0d0c4b01f7f08d2c4f5fa614",
+      "tests/test_verify.py": "871c9294b44a439cafbbe84e85ec194ed2a991e6a4f527b6ef663d4bcc6796c7"
+    },
+    "rng": "NumPy default_rng / PCG64"
+  },
+  "pytest_output": "........................................................................ [ 44%]\n........................................................................ [ 88%]\n..................                                                       [100%]\n162 passed in 9.86s",
+  "pytest_exit_code": 0,
+  "baseline_cases_exactly_replayed": 8,
+  "strategy_cases_exactly_replayed": 16,
+  "note": "Replayed numerical summaries and checked registered case coverage; timing and original source metadata excluded.",
+  "evidence_paths": {
+    "baseline.json": "/home/theo/roulette_research/results/baseline.json",
+    "strategies.json": "/home/theo/roulette_research/results/strategies.json"
+  },
+  "document_sha256": {
+    "AGENTS.md": "d33e4f80f7e86789b2d4eccbbf6616e8d3ee8d10d6164d9b1d1a450df036dc7b",
+    "README.md": "88feafa12605729bf1e8bcda9fe32f5d319a06914a1d4dc295695d97db0ea32a",
+    "pyproject.toml": "afeeb48e79319d027a40d764b352b2219141752bbb028f89693010bbfabc7d1a",
+    "docs/ADVERSARIAL_REVIEW.md": "4e000f767708b878584aa0f0ae17bf9ed25f1bbd935f4e45791dc905365b1183",
+    "docs/IMPLEMENTATION_PLAN.md": "72c3799c84ae3bdc33d6f0a3752b29f295ea91ded7b652b3b7b1c0508cbec9bd",
+    "docs/MATHEMATICS.md": "c06f7c10d8e53a67991546f4a3f7ebb09798a660b77015121bac4b02d2cb2e39",
+    "docs/PHASE2_REGISTER.md": "b183b24c750605cbdf27172ef43e609fcf4921eae3d64f641dd8da02c54a95b4",
+    "docs/RESEARCH_LEDGER.md": "f97b2e668cc9789f1e76a850c75afe10dbdca3090d6265f5bde9b65613e27621",
+    "docs/VALIDATION_PLAN.md": "3f5802075423cb60f600829456d5f26075ce4036d80299fdaee347f55821f8b4"
+  },
+  "evidence_sha256": {
+    "baseline.json": "cc68701eab3655a2eb534abda79d7492761ad2bfe2b9e6f225ef5cffca208789",
+    "strategies.json": "070ae72363110ccb9d915e2687ff8efeb3c946dc7bad06b26a36c47ff179b4a0"
+  }
+}

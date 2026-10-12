@@ -1,0 +1,147 @@
+{
+  "experiment": "P1-001",
+  "alpha_family": 0.01,
+  "comparisons": 8,
+  "target_halfwidth": 0.03,
+  "interval_method": "Bonferroni asymptotic normal",
+  "metadata": {
+    "python": "3.14.7",
+    "numpy": "2.4.6",
+    "scipy": "1.17.1",
+    "sympy": "1.14.0",
+    "code_sha256": {
+      "src/roulette/__init__.py": "d5429a85fd8df84a8216915c9eaa2a310a3d119d23054bbef8410e732ae0b344",
+      "src/roulette/evaluation.py": "d78858fae1a29250212e8101ea369b01b16194a5b9696ad004a0f06106479c4d",
+      "src/roulette/rules.py": "447f07f03b89b0a25d4c2d850eb032b5522231e41891d34e9a6bfb88126ed766",
+      "src/roulette/simulation.py": "b96720464d27e6cc91f802bae1818d0faeeb2c0fc584035532624035e07d6440",
+      "src/roulette/statistics.py": "9380b281acaa4e64c5e43d93d8265e44c80cfd0998317486dc6e03b1c74161a1",
+      "src/roulette/theory.py": "a8a80ea97ed20755e9fa15892c1324ef6dfc47bb61b0adcc595b672f486911fe",
+      "experiments/baseline.py": "0a4bdb62b3c90c6c65c91417557df3c1e33cf888005dc061251dd07ced353456",
+      "tests/test_rules.py": "1163f5c1073bf6e36497c337ce8cc5942b295ec04c3546b28c9d9d6d30477d6a",
+      "tests/test_simulation.py": "9e3ddfecbeb46b01b99f211c44ae5692be5134b027ad9fe2c5689c8abea9b1b5"
+    },
+    "rng": "NumPy default_rng / PCG64"
+  },
+  "results": [
+    {
+      "wheel": "european",
+      "bet": "red",
+      "n": 11564,
+      "seed": 2026101200,
+      "exact_ev": "-1/37",
+      "exact_variance": "1368/1369",
+      "interval": {
+        "estimate": -0.021791767554479417,
+        "se": 0.00929740166214669,
+        "low": -0.05179651351213975,
+        "high": 0.008212978403180915
+      },
+      "covered": true
+    },
+    {
+      "wheel": "european",
+      "bet": "straight_0",
+      "n": 394384,
+      "seed": 2026101201,
+      "exact_ev": "-1/37",
+      "exact_variance": "46656/1369",
+      "interval": {
+        "estimate": -0.02995050509148444,
+        "se": 0.009282343069823762,
+        "low": -0.05990665368253115,
+        "high": 5.643499562269644e-06
+      },
+      "covered": true
+    },
+    {
+      "wheel": "american",
+      "bet": "red",
+      "n": 11541,
+      "seed": 2026101202,
+      "exact_ev": "-1/19",
+      "exact_variance": "360/361",
+      "interval": {
+        "estimate": -0.05796724720561477,
+        "se": 0.009293219785983195,
+        "low": -0.08795849733546518,
+        "high": -0.027975997075764363
+      },
+      "covered": true
+    },
+    {
+      "wheel": "american",
+      "bet": "straight_0",
+      "n": 384286,
+      "seed": 2026101203,
+      "exact_ev": "-1/19",
+      "exact_variance": "11988/361",
+      "interval": {
+        "estimate": -0.029847561451627175,
+        "se": 0.009403995164827492,
+        "low": -0.06019630792522694,
+        "high": 0.0005011850219725951
+      },
+      "covered": true
+    },
+    {
+      "wheel": "la_partage",
+      "bet": "red",
+      "n": 11336,
+      "seed": 2026101204,
+      "exact_ev": "-1/74",
+      "exact_variance": "1341/1369",
+      "interval": {
+        "estimate": -0.018833803810868032,
+        "se": 0.00929448408364021,
+        "low": -0.048829134105413056,
+        "high": 0.011161526483676992
+      },
+      "covered": true
+    },
+    {
+      "wheel": "la_partage",
+      "bet": "straight_0",
+      "n": 394384,
+      "seed": 2026101205,
+      "exact_ev": "-1/37",
+      "exact_variance": "46656/1369",
+      "interval": {
+        "estimate": -0.026299241348533408,
+        "se": 0.009299311335751495,
+        "low": -0.05631015024003874,
+        "high": 0.0037116675429719297
+      },
+      "covered": true
+    },
+    {
+      "wheel": "en_prison",
+      "bet": "red",
+      "n": 11414,
+      "seed": 2026101206,
+      "exact_ev": "-1/74",
+      "exact_variance": "5401/5476",
+      "interval": {
+        "estimate": -0.005256702295426669,
+        "se": 0.009293727450210993,
+        "low": -0.03524959076862723,
+        "high": 0.024736186177773893
+      },
+      "covered": true
+    },
+    {
+      "wheel": "en_prison",
+      "bet": "straight_0",
+      "n": 394384,
+      "seed": 2026101207,
+      "exact_ev": "-1/37",
+      "exact_variance": "46656/1369",
+      "interval": {
+        "estimate": -0.027212057284271167,
+        "se": 0.009295072514195648,
+        "low": -0.0572092865727471,
+        "high": 0.0027851720042047674
+      },
+      "covered": true
+    }
+  ]
+}
